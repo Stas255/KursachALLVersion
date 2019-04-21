@@ -47,46 +47,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class\Exceptions.cs" />
-    <Compile Include="Class\F1%28%29.cs" />
-    <Compile Include="Class\F2%28%29.cs" />
-    <Compile Include="Exception.cs">
+    <Compile Include="Class\BaseFunction.cs" />
+    <Compile Include="Class\DataBase.cs" />
+    <Compile Include="FormBase.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Exception.Designer.cs">
-      <DependentUpon>Exception.cs</DependentUpon>
+    <Compile Include="FormBase.Designer.cs">
+      <DependentUpon>FormBase.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormF1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormF1.Designer.cs">
-      <DependentUpon>FormF1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormF2.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormF2.Designer.cs">
-      <DependentUpon>FormF2.cs</DependentUpon>
+    <Compile Include="FormMain.Designer.cs">
+      <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Exception.resx">
-      <DependentUpon>Exception.cs</DependentUpon>
+    <EmbeddedResource Include="FormBase.resx">
+      <DependentUpon>FormBase.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormF1.resx">
-      <DependentUpon>FormF1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormF2.resx">
-      <DependentUpon>FormF2.cs</DependentUpon>
+    <EmbeddedResource Include="FormMain.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

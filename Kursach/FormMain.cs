@@ -11,12 +11,13 @@ using Kursach.Class;
 
 namespace Kursach
 {
-    public partial class Form1 : Form
+    public partial class FormMain : Form
     {
-        public Form1()
+        private DataBase dataBase;
+        public FormMain()
         {
             InitializeComponent();
-            CreatePicture();
+            //CreatePicture();
         }
         public void CreatePicture()
         {
@@ -27,12 +28,10 @@ namespace Kursach
         {
             if(string.IsNullOrWhiteSpace(textBoxXMin.Text) || string.IsNullOrWhiteSpace(textBoxXMax.Text) || string.IsNullOrWhiteSpace(textBoxDx.Text))
             {
-                Exceptions.EmptyError();
                 return false;
             }
             if (Convert.ToDouble(textBoxXMin.Text) > Convert.ToDouble(textBoxXMax.Text))
             {
-                Exceptions.XMinError(Convert.ToDouble(textBoxXMin.Text), Convert.ToDouble(textBoxXMax.Text));
                 return false;
             }
             return true;
@@ -42,35 +41,33 @@ namespace Kursach
         {
             double q;
             Random random = new Random();
-            Value coordinate = new Value();
-            F1 f1;
-            F2 f2;
+            Value coordinate;
+            dataBase = new DataBase();
             if (Check())
             {
-                f1 = new F1();
-                f2 = new F2();
                 double xMin = Convert.ToDouble(textBoxXMin.Text);
                 double xMax = Convert.ToDouble(textBoxXMax.Text);
                 double dx = Convert.ToDouble(textBoxDx.Text);
                 double a = Convert.ToDouble(textBoxA.Text);
-                progressBar.Step = (int)((xMax - xMin) / dx);
-                for (double i = xMin; i < xMax; i += dx)
+                progressBar.Value = 0;
+                progressBar.Maximum = (int)((xMax - xMin)/dx);
+                for (double i = xMin; i <= xMax; i += dx)
                 {
                     q = random.NextDouble();
                     coordinate = new Value() { x = i, q = q, a = a };
                     if (q > 0 && q <= 0.7)
                     {
-                        f1.Caculate(coordinate);
+                        BaseFunction.CaculateFun1(ref coordinate);
+                        dataBase.AddFuntion1(coordinate);
                     }
                     else
                     {
-                        f2.Caculate(coordinate);
+                        BaseFunction.CaculateFun2(ref coordinate);
+                        dataBase.AddFuntion2(coordinate);
                     }
                     System.Threading.Thread.Sleep(1000);
-                    progressBar.PerformStep();
+                    progressBar.Value++;
                 }
-                f1.OutPutGrafic();
-                f2.OutPutGrafic();
             }
         }
 
@@ -88,6 +85,15 @@ namespace Kursach
             if (number == '-' && ((sender as TextBox).Text.IndexOf('-')) > -1)
             {
                 e.Handled = true;
+            }
+        }
+
+        private void grafictToolStripMenuItemGraph1_Click(object sender, EventArgs e)
+        {
+            FormBase formBase = new FormBase();
+            if (dataBase != null)
+            {
+                formBase.AddFunction("Funtion 1", dataBase.Funtion1);
             }
         }
     }
