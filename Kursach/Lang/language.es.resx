@@ -120,6 +120,9 @@
   <data name="ErrorDiscribe" xml:space="preserve">
     <value>At variable</value>
   </data>
+  <data name="ErrorDx" xml:space="preserve">
+    <value>Can not perform an action with this step</value>
+  </data>
   <data name="ErrorDxIs0" xml:space="preserve">
     <value>Dx can't equalize 0</value>
   </data>

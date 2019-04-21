@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using Kursach.Class;
 using Kursach.Forms;
@@ -30,22 +31,35 @@ namespace Kursach
 
         public bool Check()
         {
-            if(string.IsNullOrWhiteSpace(textBoxXMin.Text) || string.IsNullOrWhiteSpace(textBoxXMax.Text) || string.IsNullOrWhiteSpace(textBoxDx.Text))
+            if (new[] { textBoxXMin, textBoxXMax, textBoxDx }.Any(c => errorProvider1.GetError(c) != string.Empty))
+            {
+
+            }
+            if(new[] { textBoxXMin, textBoxXMax, textBoxDx }.Any(c => string.IsNullOrWhiteSpace(c.Text)))
             {
                 MessageBox.Show(Lang.language.ErrorTextIsNull, Lang.language.TextErrorForMesanger,
                 MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-            if (Convert.ToDouble(textBoxXMin.Text) > Convert.ToDouble(textBoxXMax.Text))
-            {
-                MessageBox.Show(Lang.language.ErrorMaxLowMin, Lang.language.TextErrorForMesanger,
-                MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
+            //if (Convert.ToDouble(textBoxXMin.Text) > Convert.ToDouble(textBoxXMax.Text))
+            //{
+            //    MessageBox.Show(Lang.language.ErrorMaxLowMin, Lang.language.TextErrorForMesanger,
+            //    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    return false;
+            //}
             if (Convert.ToDouble(textBoxDx.Text) == 0.0)
             {
                 MessageBox.Show(Lang.language.ErrorDxIs0, Lang.language.TextErrorForMesanger,
                 MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            if ((Convert.ToDouble(textBoxXMax.Text) - Convert.ToDouble(textBoxXMin.Text)) *
+                Convert.ToDouble(textBoxDx.Text) < 0)
+            {
+                MessageBox.Show(Lang.language.ErrorDx, Lang.language.TextErrorForMesanger,
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBoxDx.Text = String.Empty;
                 return false;
             }
             return true;
@@ -66,19 +80,20 @@ namespace Kursach
 
         private void textBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            char number = e.KeyChar;
-            if (!Char.IsDigit(number) && number != 8 && number != ',' && number != '-')
-            {
-                e.Handled = true;
-            }
+            //char number = e.KeyChar;
+            //if (!Char.IsDigit(number) && number != 8 && number != ',' && number != '-')
+            //{
+            //    e.Handled = true;
+            //}
 
-            if(number == ',' && ((sender as TextBox).Text.IndexOf(',')) > -1) {
-                e.Handled = true;
-            }
-            if (number == '-' && (sender as TextBox).Text != string.Empty)
-            {
-                e.Handled = true;
-            }
+            //if (number == ',' && ((sender as TextBox).Text.IndexOf(',')) > -1)
+            //{
+            //    e.Handled = true;
+            //}
+            //if (number == '-' && (sender as TextBox).Text != string.Empty)
+            //{
+            //    e.Handled = true;
+            //}
         }
 
         private void grafictToolStripMenuItemGraph1_Click(object sender, EventArgs e)
@@ -91,7 +106,7 @@ namespace Kursach
                 dictionary[enumFoms.FormGraf1] = new FormGraf();
             }
 
-            dictionary[enumFoms.FormGraf1].AddFunction(dataBase.GetResult(typeof(Funtion1)));
+            dictionary[enumFoms.FormGraf1].AddFunction(dataBase.GetResult(typeof(Funtion1)), typeof(Funtion1));
             dictionary[enumFoms.FormGraf1].Show();
         }
         private void ToolStripMenuItemGraphF2_Click(object sender, EventArgs e)
@@ -105,7 +120,7 @@ namespace Kursach
                 dictionary[enumFoms.FormGraf2] = new FormGraf();
             }
 
-            dictionary[enumFoms.FormGraf2].AddFunction(dataBase.GetResult(typeof(Funtion2)));
+            dictionary[enumFoms.FormGraf2].AddFunction(dataBase.GetResult(typeof(Funtion2)), typeof(Funtion2));
             dictionary[enumFoms.FormGraf2].Show();
         }
         private void ToolStripMenuItemFormulaF1_Click(object sender, EventArgs e)
@@ -154,10 +169,22 @@ namespace Kursach
             Refresh();
         }
 
-        private void ToolStripMenuItemGraph_EnabledChanged(object sender, EventArgs e)
+        private bool IsShow(enumFoms enumFom)
         {
-            (sender as ToolStripMenuItem).DropDownItems[0].Enabled = (dataBase != null);
-            (sender as ToolStripMenuItem).DropDownItems[2].Enabled = (dataBase != null);
+            return (!dictionary.ContainsKey(enumFom) || dictionary[enumFom].IsDisposed());
+        }
+
+        private void ToolStripMenuItemGraph_EnabledChanged1(object sender, EventArgs e)
+        {
+            (sender as ToolStripMenuItem).DropDownItems[0].Enabled = (dataBase != null && IsShow(enumFoms.FormGraf1));
+            (sender as ToolStripMenuItem).DropDownItems[1].Enabled = IsShow(enumFoms.FormPicture1);
+            (sender as ToolStripMenuItem).DropDownItems[2].Enabled = (dataBase != null && IsShow(enumFoms.FormIteration1));
+        }
+        private void ToolStripMenuItemGraph_EnabledChanged2(object sender, EventArgs e)
+        {
+            (sender as ToolStripMenuItem).DropDownItems[0].Enabled = (dataBase != null && IsShow(enumFoms.FormGraf2));
+            (sender as ToolStripMenuItem).DropDownItems[1].Enabled = IsShow(enumFoms.FormPicture2);
+            (sender as ToolStripMenuItem).DropDownItems[2].Enabled = (dataBase != null && IsShow(enumFoms.FormIteration2));
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -252,6 +279,17 @@ namespace Kursach
             }
             dictionary[enumFoms.FormIteration2].AddFunction(dataBase.GetResult(typeof(Funtion2)), typeof(Funtion2));
             dictionary[enumFoms.FormIteration2].Show();
+        }
+
+
+        private void textBoxXMin_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            var text = (sender as TextBox).Text;
+            if(string.IsNullOrWhiteSpace(text)) return;
+
+            Regex check = new Regex(@"^([-]{0,1}\d+)$");
+            var error = check.IsMatch(text) ? "" : "error1";
+            errorProvider1.SetError(sender as TextBox, error);
         }
     }
 }

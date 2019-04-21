@@ -90,6 +90,15 @@ namespace Kursach.Lang {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Неможна виконувати дію з таким кроком.
+        /// </summary>
+        internal static string ErrorDx {
+            get {
+                return ResourceManager.GetString("ErrorDx", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Dx неможе дорівнювати 0.
         /// </summary>
         internal static string ErrorDxIs0 {

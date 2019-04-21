@@ -9,6 +9,7 @@ namespace Kursach.Class
 {
      class DataBase
      {
+         Random random = new Random();
         static public int ErrorCout = 0;
         private BaseFuntion funtion1;
          private BaseFuntion funtion2;
@@ -24,27 +25,43 @@ namespace Kursach.Class
 
          public void Start(ProgressBar progressBar)
          {
-             double q;
-             Random random = new Random();
             ErrorCout = 0;
             progressBar.Value = 0;
-             progressBar.Maximum = (int)(((xMax - xMin) / dx) + dx) + 1;
-             for (double x = xMin; x <= xMax; x += dx)
+             if (xMin < xMax)
              {
-                 q = random.NextDouble();
-                 if (q > 0 && q <= 0.7)
+                 progressBar.Maximum = (int)(((xMax - xMin) / dx) + dx) + 1;
+                for (double x = xMin; x <= xMax; x += dx)
                  {
-                     funtion1.Calculate(x,q);
+                     CalculateRand(x);
+                     progressBar.Value++;
                  }
-                 else
-                 {
-                     funtion2.Calculate(x,q);
-                 }
-                 //System.Threading.Thread.Sleep((int)(1000 / (xMax - xMin)));
-                 progressBar.Value++;
              }
-            progressBar.Value = progressBar.Maximum;
+             else
+             {
+                 progressBar.Maximum = (int)(((xMax - xMin) / dx) - dx) + 1;
+                for (double x = xMin; x >= xMax; x += dx)
+                 {
+                     CalculateRand(x);
+                     progressBar.Value++;
+                 }
+            }
+
+             progressBar.Value = progressBar.Maximum;
          }
+
+         private void CalculateRand(double x)
+         {
+             double q = random.NextDouble();
+             if (q > 0 && q <= 0.7)
+             {
+                 funtion1.Calculate(x, q);
+             }
+             else
+             {
+                 funtion2.Calculate(x, q);
+             }
+             //System.Threading.Thread.Sleep((int)(1000 / (xMax - xMin)));
+        } 
 
          public List<Value> GetResult(Type type)
          {

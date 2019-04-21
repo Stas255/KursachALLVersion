@@ -67,6 +67,7 @@ namespace Kursach
             this.progressBar = new System.Windows.Forms.ProgressBar();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -77,6 +78,7 @@ namespace Kursach
             this.groupBox4.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // ToolStripMenuItemF1
@@ -87,7 +89,7 @@ namespace Kursach
             this.QuantityIterationToolStripMenuItem1});
             this.ToolStripMenuItemF1.Name = "ToolStripMenuItemF1";
             resources.ApplyResources(this.ToolStripMenuItemF1, "ToolStripMenuItemF1");
-            this.ToolStripMenuItemF1.DropDownOpened += new System.EventHandler(this.ToolStripMenuItemGraph_EnabledChanged);
+            this.ToolStripMenuItemF1.DropDownOpened += new System.EventHandler(this.ToolStripMenuItemGraph_EnabledChanged1);
             // 
             // ToolStripMenuItemGraphF1
             // 
@@ -125,7 +127,7 @@ namespace Kursach
             this.QuantityIterationToolStripMenuItem2});
             this.ToolStripMenuItemF2.Name = "ToolStripMenuItemF2";
             resources.ApplyResources(this.ToolStripMenuItemF2, "ToolStripMenuItemF2");
-            this.ToolStripMenuItemF2.DropDownOpened += new System.EventHandler(this.ToolStripMenuItemGraph_EnabledChanged);
+            this.ToolStripMenuItemF2.DropDownOpened += new System.EventHandler(this.ToolStripMenuItemGraph_EnabledChanged2);
             // 
             // ToolStripMenuItemGraphF2
             // 
@@ -295,6 +297,7 @@ namespace Kursach
             resources.ApplyResources(this.textBoxXMin, "textBoxXMin");
             this.textBoxXMin.Name = "textBoxXMin";
             this.textBoxXMin.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_KeyPress);
+            this.textBoxXMin.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxXMin_Validating);
             // 
             // labelInputeData
             // 
@@ -311,6 +314,10 @@ namespace Kursach
             // 
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
             // 
             // FormMain
             // 
@@ -339,6 +346,7 @@ namespace Kursach
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -380,6 +388,7 @@ namespace Kursach
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.ToolStripMenuItem QuantityIterationToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem QuantityIterationToolStripMenuItem2;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }
 

@@ -190,6 +190,9 @@
   <data name="TextStudent" xml:space="preserve">
     <value>Студент</value>
   </data>
+  <data name="ErrorDx" xml:space="preserve">
+    <value>Неможна виконувати дію з таким кроком</value>
+  </data>
   <data name="TextIteration" xml:space="preserve">
     <value>Кількість ітерацій: </value>
   </data>

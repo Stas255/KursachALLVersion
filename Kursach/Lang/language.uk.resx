@@ -120,6 +120,9 @@
   <data name="ErrorDiscribe" xml:space="preserve">
     <value>!!!При значенні </value>
   </data>
+  <data name="ErrorDx" xml:space="preserve">
+    <value>Неможна виконувати дію з таким кроком</value>
+  </data>
   <data name="ErrorDxIs0" xml:space="preserve">
     <value>Dx неможе дорівнювати 0</value>
   </data>
