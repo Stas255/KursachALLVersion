@@ -35,12 +35,12 @@ namespace Kursach
             this.ToolStripMenuItemF1 = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItemGraphF1 = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItemFormulaF1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.кількістьІтераційToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.QuantityIterationToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.ToolStripMenuItemF2 = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItemGraphF2 = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItemFormulaF2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.кількістьІтераційToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.QuantityIterationToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.languagesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ukrainToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.englishToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -84,7 +84,7 @@ namespace Kursach
             this.ToolStripMenuItemF1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ToolStripMenuItemGraphF1,
             this.ToolStripMenuItemFormulaF1,
-            this.кількістьІтераційToolStripMenuItem});
+            this.QuantityIterationToolStripMenuItem1});
             this.ToolStripMenuItemF1.Name = "ToolStripMenuItemF1";
             resources.ApplyResources(this.ToolStripMenuItemF1, "ToolStripMenuItemF1");
             this.ToolStripMenuItemF1.DropDownOpened += new System.EventHandler(this.ToolStripMenuItemGraph_EnabledChanged);
@@ -101,10 +101,11 @@ namespace Kursach
             resources.ApplyResources(this.ToolStripMenuItemFormulaF1, "ToolStripMenuItemFormulaF1");
             this.ToolStripMenuItemFormulaF1.Click += new System.EventHandler(this.ToolStripMenuItemFormulaF1_Click);
             // 
-            // кількістьІтераційToolStripMenuItem
+            // QuantityIterationToolStripMenuItem1
             // 
-            this.кількістьІтераційToolStripMenuItem.Name = "кількістьІтераційToolStripMenuItem";
-            resources.ApplyResources(this.кількістьІтераційToolStripMenuItem, "кількістьІтераційToolStripMenuItem");
+            this.QuantityIterationToolStripMenuItem1.Name = "QuantityIterationToolStripMenuItem1";
+            resources.ApplyResources(this.QuantityIterationToolStripMenuItem1, "QuantityIterationToolStripMenuItem1");
+            this.QuantityIterationToolStripMenuItem1.Click += new System.EventHandler(this.QuantityIterationToolStripMenuItem1_Click);
             // 
             // menuStrip1
             // 
@@ -121,7 +122,7 @@ namespace Kursach
             this.ToolStripMenuItemF2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ToolStripMenuItemGraphF2,
             this.ToolStripMenuItemFormulaF2,
-            this.кількістьІтераційToolStripMenuItem1});
+            this.QuantityIterationToolStripMenuItem2});
             this.ToolStripMenuItemF2.Name = "ToolStripMenuItemF2";
             resources.ApplyResources(this.ToolStripMenuItemF2, "ToolStripMenuItemF2");
             this.ToolStripMenuItemF2.DropDownOpened += new System.EventHandler(this.ToolStripMenuItemGraph_EnabledChanged);
@@ -138,10 +139,11 @@ namespace Kursach
             resources.ApplyResources(this.ToolStripMenuItemFormulaF2, "ToolStripMenuItemFormulaF2");
             this.ToolStripMenuItemFormulaF2.Click += new System.EventHandler(this.ToolStripMenuItemFormulaF2_Click);
             // 
-            // кількістьІтераційToolStripMenuItem1
+            // QuantityIterationToolStripMenuItem2
             // 
-            this.кількістьІтераційToolStripMenuItem1.Name = "кількістьІтераційToolStripMenuItem1";
-            resources.ApplyResources(this.кількістьІтераційToolStripMenuItem1, "кількістьІтераційToolStripMenuItem1");
+            this.QuantityIterationToolStripMenuItem2.Name = "QuantityIterationToolStripMenuItem2";
+            resources.ApplyResources(this.QuantityIterationToolStripMenuItem2, "QuantityIterationToolStripMenuItem2");
+            this.QuantityIterationToolStripMenuItem2.Click += new System.EventHandler(this.QuantityIterationToolStripMenuItem2_Click);
             // 
             // languagesToolStripMenuItem
             // 
@@ -178,6 +180,7 @@ namespace Kursach
             // 
             this.toolStripStatusLabelErrors.Name = "toolStripStatusLabelErrors";
             resources.ApplyResources(this.toolStripStatusLabelErrors, "toolStripStatusLabelErrors");
+            this.toolStripStatusLabelErrors.Click += new System.EventHandler(this.toolStripStatusLabelErrorCout_Click);
             // 
             // toolStripStatusLabelErrorCout
             // 
@@ -375,8 +378,8 @@ namespace Kursach
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelErrorCout;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.ToolStripMenuItem кількістьІтераційToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem кількістьІтераційToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem QuantityIterationToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem QuantityIterationToolStripMenuItem2;
     }
 }
 

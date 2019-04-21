@@ -25,11 +25,11 @@ namespace Kursach.Class
         }
         public string GetInfo()
         {
-            if (error == -1) return GetError();
+            if (error == -1) return GetInforNotError();
             return $"{Lang.language.ErrorDiscribe} X = {Math.Round(x, 7)}, Q = {Math.Round(q, 7)}, A = {Math.Round(a, 7)}. {Lang.language.Errors.Split(',')[error]}";
         }
 
-        public string GetError()
+        public string GetInforNotError()
         {
             if (error != -1) return String.Empty;
             return $"X = {Math.Round(x, 7)}, Y = {Math.Round(y, 7)}, Q = {Math.Round(q, 7)}";

@@ -12,14 +12,14 @@ namespace Kursach.Forms
      class FormGraf : FormBase, InterfaceRefresh
      {
          private List<Value> results;
-         private int number;
+         private Type type;
          private Series series;
          private ListBox listBox1;
-        public void AddFunction(int number, List<Value> results, Type type)
+        public void AddFunction(List<Value> results, Type type)
         {
             this.results = results;
-            this.number = number;
-            var name = number == 1 ? Lang.language.TextMenuF1 : Lang.language.TextMenuF2;
+            this.type = type;
+            var name = type == typeof(Funtion1) ? Lang.language.TextMenuF1 : Lang.language.TextMenuF2;
             this.Text = name;
             this.Size = new System.Drawing.Size(1000, 550);
             series = new Series(name);
@@ -53,7 +53,7 @@ namespace Kursach.Forms
 
         public void Refresh()
         {
-            var name = number == 1 ? Lang.language.TextMenuF1 : Lang.language.TextMenuF2;
+            var name = type == typeof(Funtion1) ? Lang.language.TextMenuF1 : Lang.language.TextMenuF2;
             this.Text = name;
             series.Name = name;
             listBox1.Items.Clear();

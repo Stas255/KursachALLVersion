@@ -14,7 +14,7 @@ namespace Kursach
         //FormBase formPicture1, formPicture2;
         //FormBase formSudent;
         //FormBase FormError;
-        enum enumFoms { FormGraf1, FormGraf2, FormPicture1, FormPicture2,FormStudent, FormError };
+        enum enumFoms { FormGraf1, FormGraf2, FormPicture1, FormPicture2,FormStudent, FormError, FormIteration1, FormIteration2 };
         Dictionary<enumFoms, InterfaceRefresh> dictionary = new Dictionary<enumFoms, InterfaceRefresh>();
         private DataBase dataBase;
         public FormMain()
@@ -91,7 +91,7 @@ namespace Kursach
                 dictionary[enumFoms.FormGraf1] = new FormGraf();
             }
 
-            dictionary[enumFoms.FormGraf1].AddFunction(1, dataBase.GetResult(typeof(Funtion1)));
+            dictionary[enumFoms.FormGraf1].AddFunction(dataBase.GetResult(typeof(Funtion1)));
             dictionary[enumFoms.FormGraf1].Show();
         }
         private void ToolStripMenuItemGraphF2_Click(object sender, EventArgs e)
@@ -105,7 +105,7 @@ namespace Kursach
                 dictionary[enumFoms.FormGraf2] = new FormGraf();
             }
 
-            dictionary[enumFoms.FormGraf2].AddFunction(2, dataBase.GetResult(typeof(Funtion2)));
+            dictionary[enumFoms.FormGraf2].AddFunction(dataBase.GetResult(typeof(Funtion2)));
             dictionary[enumFoms.FormGraf2].Show();
         }
         private void ToolStripMenuItemFormulaF1_Click(object sender, EventArgs e)
@@ -118,7 +118,7 @@ namespace Kursach
             {
                 dictionary[enumFoms.FormPicture1] = new PictureForm();
             }
-            dictionary[enumFoms.FormPicture1].AddFunction(1,null, typeof(Funtion1));
+            dictionary[enumFoms.FormPicture1].AddFunction(null, typeof(Funtion1));
             dictionary[enumFoms.FormPicture1].Show();
         }
         private void ToolStripMenuItemFormulaF2_Click(object sender, EventArgs e)
@@ -131,7 +131,7 @@ namespace Kursach
             {
                 dictionary[enumFoms.FormPicture2] = new PictureForm();
             }
-            dictionary[enumFoms.FormPicture2].AddFunction(2, null, typeof(Funtion2));
+            dictionary[enumFoms.FormPicture2].AddFunction(null, typeof(Funtion2));
             dictionary[enumFoms.FormPicture2].Show();
         }
         //private bool CheckForm(FormBase formBase)
@@ -167,11 +167,16 @@ namespace Kursach
 
         private void інформаціяПроСтудентаToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //if (CheckForm(formSudent))
-            //{
-            //    formSudent = new FormBase();
-            //    formSudent.AddPicture("студент");
-            //}
+            if (!dictionary.ContainsKey(enumFoms.FormStudent))
+            {
+                dictionary.Add(enumFoms.FormStudent, new FormAboutStudent());
+            }
+            else if (dictionary[enumFoms.FormStudent].IsDisposed())
+            {
+                dictionary[enumFoms.FormStudent] = new FormAboutStudent();
+            }
+            dictionary[enumFoms.FormStudent].AddFunction();
+            dictionary[enumFoms.FormStudent].Show();
         }
 
         private void englishToolStripMenuItem_Click(object sender, EventArgs e)
@@ -182,7 +187,24 @@ namespace Kursach
 
         private void toolStripStatusLabelErrorCout_Click(object sender, EventArgs e)
         {
+            if (Int32.Parse(toolStripStatusLabelErrorCout.Text) != 0)
+            {
+                if (!dictionary.ContainsKey(enumFoms.FormError))
+                {
+                    dictionary.Add(enumFoms.FormError, new FormErrors());
+                }
+                else if (dictionary[enumFoms.FormError].IsDisposed())
+                {
+                    dictionary[enumFoms.FormError] = new FormErrors();
+                }
 
+                dictionary[enumFoms.FormError].AddFunction(dataBase.GetResult(typeof(Funtion1)));
+                dictionary[enumFoms.FormError].Show();
+            }
+            else
+            {
+                //ошибка помилок незнайдено
+            }
         }
 
         private void Refresh()
@@ -204,12 +226,32 @@ namespace Kursach
 
         }
 
-        private void kkkk()
+        private void QuantityIterationToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            if (5 == 6)
+            if (!dictionary.ContainsKey(enumFoms.FormIteration1))
             {
-                var y = 5;
+                dictionary.Add(enumFoms.FormIteration1, new FormQuantityIterations());
             }
+            else if (dictionary[enumFoms.FormIteration1].IsDisposed())
+            {
+                dictionary[enumFoms.FormIteration1] = new FormQuantityIterations();
+            }
+            dictionary[enumFoms.FormIteration1].AddFunction(dataBase.GetResult(typeof(Funtion1)), typeof(Funtion1));
+            dictionary[enumFoms.FormIteration1].Show();
+        }
+
+        private void QuantityIterationToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            if (!dictionary.ContainsKey(enumFoms.FormIteration2))
+            {
+                dictionary.Add(enumFoms.FormIteration2, new FormQuantityIterations());
+            }
+            else if (dictionary[enumFoms.FormIteration2].IsDisposed())
+            {
+                dictionary[enumFoms.FormIteration2] = new FormQuantityIterations();
+            }
+            dictionary[enumFoms.FormIteration2].AddFunction(dataBase.GetResult(typeof(Funtion2)), typeof(Funtion2));
+            dictionary[enumFoms.FormIteration2].Show();
         }
     }
 }

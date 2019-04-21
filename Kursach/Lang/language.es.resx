@@ -118,7 +118,19 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ErrorDiscribe" xml:space="preserve">
-    <value>At significance</value>
+    <value>At variable</value>
+  </data>
+  <data name="ErrorDxIs0" xml:space="preserve">
+    <value>Dx can't equalize 0</value>
+  </data>
+  <data name="ErrorIsOpenForm" xml:space="preserve">
+    <value> already open</value>
+  </data>
+  <data name="ErrorMaxLowMin" xml:space="preserve">
+    <value>Xmax must be more Xmin</value>
+  </data>
+  <data name="ErrorTextIsNull" xml:space="preserve">
+    <value>All fields must be filled</value>
   </data>
   <data name="GroupStudent" xml:space="preserve">
     <value>IT-71/2</value>
@@ -126,14 +138,23 @@
   <data name="NameStudnet" xml:space="preserve">
     <value>Tolstonozhenko Stanislav Olegovich</value>
   </data>
+  <data name="TextAboutFormGraf" xml:space="preserve">
+    <value>Here are the results of the calculations and the graph, and with which parameters the error</value>
+  </data>
   <data name="TextButtomStart" xml:space="preserve">
     <value>Start</value>
   </data>
   <data name="TextError" xml:space="preserve">
     <value>Errors : </value>
   </data>
+  <data name="TextErrorForMesanger" xml:space="preserve">
+    <value>Error</value>
+  </data>
   <data name="TextInputeData" xml:space="preserve">
     <value>Inpute data</value>
+  </data>
+  <data name="TextIteration" xml:space="preserve">
+    <value>Quantity iterations: </value>
   </data>
   <data name="TextMenuF1" xml:space="preserve">
     <value>Function 1</value>
@@ -155,6 +176,9 @@
   </data>
   <data name="TextMenuLangUkr" xml:space="preserve">
     <value>Ukrainian</value>
+  </data>
+  <data name="TextStudent" xml:space="preserve">
+    <value>Student</value>
   </data>
   <data name="TextTimeWork" xml:space="preserve">
     <value>Time :</value>

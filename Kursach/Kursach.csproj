@@ -49,6 +49,12 @@
   <ItemGroup>
     <Compile Include="Class\BaseFuntion.cs" />
     <Compile Include="Class\DataBase.cs" />
+    <Compile Include="Forms\FormAboutStudent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormAboutStudent.Designer.cs">
+      <DependentUpon>FormAboutStudent.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormBase.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -61,8 +67,20 @@
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FormErrors.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormErrors.Designer.cs">
+      <DependentUpon>FormErrors.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormGraf.cs">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormQuantityIterations.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormQuantityIterations.Designer.cs">
+      <DependentUpon>FormQuantityIterations.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\InterfaceRefresh.cs" />
     <Compile Include="Forms\PictureForm.cs">
@@ -83,6 +101,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormQuantityIterations.resx">
+      <DependentUpon>FormQuantityIterations.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\PictureForm.resx">
       <DependentUpon>PictureForm.cs</DependentUpon>

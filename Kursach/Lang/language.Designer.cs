@@ -198,6 +198,15 @@ namespace Kursach.Lang {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Кількість ітерацій: .
+        /// </summary>
+        internal static string TextIteration {
+            get {
+                return ResourceManager.GetString("TextIteration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Функція 1 .
         /// </summary>
         internal static string TextMenuF1 {
@@ -257,6 +266,15 @@ namespace Kursach.Lang {
         internal static string TextMenuLangUkr {
             get {
                 return ResourceManager.GetString("TextMenuLangUkr", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Студент.
+        /// </summary>
+        internal static string TextStudent {
+            get {
+                return ResourceManager.GetString("TextStudent", resourceCulture);
             }
         }
         

@@ -134,10 +134,10 @@
   <data name="ToolStripMenuItemFormulaF1.Text" xml:space="preserve">
     <value>Графіка</value>
   </data>
-  <data name="кількістьІтераційToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="QuantityIterationToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
     <value>170, 22</value>
   </data>
-  <data name="кількістьІтераційToolStripMenuItem.Text" xml:space="preserve">
+  <data name="QuantityIterationToolStripMenuItem1.Text" xml:space="preserve">
     <value>Кількість ітерацій</value>
   </data>
   <data name="ToolStripMenuItemF1.Size" type="System.Drawing.Size, System.Drawing">
@@ -153,21 +153,21 @@
     <value>False</value>
   </data>
   <data name="ToolStripMenuItemGraphF2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>170, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="ToolStripMenuItemGraphF2.Text" xml:space="preserve">
     <value>Формула</value>
   </data>
   <data name="ToolStripMenuItemFormulaF2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>170, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="ToolStripMenuItemFormulaF2.Text" xml:space="preserve">
     <value>Графіка</value>
   </data>
-  <data name="кількістьІтераційToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>170, 22</value>
+  <data name="QuantityIterationToolStripMenuItem2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
   </data>
-  <data name="кількістьІтераційToolStripMenuItem1.Text" xml:space="preserve">
+  <data name="QuantityIterationToolStripMenuItem2.Text" xml:space="preserve">
     <value>Кількість ітерацій</value>
   </data>
   <data name="ToolStripMenuItemF2.Size" type="System.Drawing.Size, System.Drawing">
@@ -226,10 +226,10 @@
     <value>132, 17</value>
   </metadata>
   <data name="toolStripStatusLabelErrors.Size" type="System.Drawing.Size, System.Drawing">
-    <value>63, 17</value>
+    <value>68, 17</value>
   </data>
   <data name="toolStripStatusLabelErrors.Text" xml:space="preserve">
-    <value>Ошибки : </value>
+    <value>Помилки : </value>
   </data>
   <data name="toolStripStatusLabelErrorCout.Size" type="System.Drawing.Size, System.Drawing">
     <value>13, 17</value>
@@ -748,10 +748,10 @@
   <data name="&gt;&gt;ToolStripMenuItemFormulaF1.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;кількістьІтераційToolStripMenuItem.Name" xml:space="preserve">
-    <value>кількістьІтераційToolStripMenuItem</value>
+  <data name="&gt;&gt;QuantityIterationToolStripMenuItem1.Name" xml:space="preserve">
+    <value>QuantityIterationToolStripMenuItem1</value>
   </data>
-  <data name="&gt;&gt;кількістьІтераційToolStripMenuItem.Type" xml:space="preserve">
+  <data name="&gt;&gt;QuantityIterationToolStripMenuItem1.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;ToolStripMenuItemF2.Name" xml:space="preserve">
@@ -772,10 +772,10 @@
   <data name="&gt;&gt;ToolStripMenuItemFormulaF2.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;кількістьІтераційToolStripMenuItem1.Name" xml:space="preserve">
-    <value>кількістьІтераційToolStripMenuItem1</value>
+  <data name="&gt;&gt;QuantityIterationToolStripMenuItem2.Name" xml:space="preserve">
+    <value>QuantityIterationToolStripMenuItem2</value>
   </data>
-  <data name="&gt;&gt;кількістьІтераційToolStripMenuItem1.Type" xml:space="preserve">
+  <data name="&gt;&gt;QuantityIterationToolStripMenuItem2.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;languagesToolStripMenuItem.Name" xml:space="preserve">

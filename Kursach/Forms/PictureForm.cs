@@ -11,12 +11,12 @@ namespace Kursach.Forms
 {
     partial class PictureForm : FormBase, InterfaceRefresh
     {
-        private int number;
+        private Type type;
 
-        public void AddFunction(int number, List<Value> results, Type type)
-        {
-            this.number = number;
-            var name = number == 1 ? Lang.language.TextMenuF1 + Lang.language.TextMenuFormula.ToLower() : Lang.language.TextMenuF2 + Lang.language.TextMenuFormula.ToLower();
+        public void AddFunction(List<Value> results, Type type)
+        { 
+            this.type = type;
+            var name = type == typeof(Funtion1) ? Lang.language.TextMenuF1 : Lang.language.TextMenuF2;
             this.Text = name;
             this.Size = new System.Drawing.Size(400, 180);
             PictureBox pictureBox1 = new PictureBox();
@@ -39,7 +39,7 @@ namespace Kursach.Forms
 
         public void Refresh()
         {
-            var name = number == 1 ? Lang.language.TextMenuF1 + Lang.language.TextMenuFormula.ToLower() : Lang.language.TextMenuF2 + Lang.language.TextMenuFormula.ToLower();
+            var name = type == typeof(Funtion1) ? Lang.language.TextMenuF1 : Lang.language.TextMenuF2;
             this.Text = name;
         }
     }
