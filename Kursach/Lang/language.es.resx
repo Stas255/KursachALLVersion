@@ -117,7 +117,46 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="menuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
+  <data name="ErrorDiscribe" xml:space="preserve">
+    <value>At significance</value>
+  </data>
+  <data name="GroupStudent" xml:space="preserve">
+    <value>IT-71/2</value>
+  </data>
+  <data name="NameStudnet" xml:space="preserve">
+    <value>Tolstonozhenko Stanislav Olegovich</value>
+  </data>
+  <data name="TextButtomStart" xml:space="preserve">
+    <value>Start</value>
+  </data>
+  <data name="TextError" xml:space="preserve">
+    <value>Errors : </value>
+  </data>
+  <data name="TextInputeData" xml:space="preserve">
+    <value>Inpute data</value>
+  </data>
+  <data name="TextMenuF1" xml:space="preserve">
+    <value>Function 1</value>
+  </data>
+  <data name="TextMenuF2" xml:space="preserve">
+    <value>Function 2</value>
+  </data>
+  <data name="TextMenuFormula" xml:space="preserve">
+    <value>Formula</value>
+  </data>
+  <data name="TextMenuGraf" xml:space="preserve">
+    <value>Graphic</value>
+  </data>
+  <data name="TextMenuLang" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="TextMenuLangEng" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="TextMenuLangUkr" xml:space="preserve">
+    <value>Ukrainian</value>
+  </data>
+  <data name="TextTimeWork" xml:space="preserve">
+    <value>Time :</value>
+  </data>
 </root>
