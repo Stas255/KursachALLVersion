@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Kursach.Class
 {
-    class Value
+    public class Value
     {
         public double x, y, q, a;
         public int error = -1;

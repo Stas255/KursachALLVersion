@@ -1,6 +1,6 @@
-﻿namespace Kursach
+﻿namespace Kursach.Forms
 {
-    public partial class FormBase
+    partial class PictureForm
     {
         /// <summary>
         /// Required designer variable.
@@ -30,13 +30,13 @@
         {
             this.SuspendLayout();
             // 
-            // FormBase
+            // PictureForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(384, 141);
-            this.Name = "FormBase";
-            this.Text = "FormBase";
+            this.ClientSize = new System.Drawing.Size(364, 134);
+            this.Name = "PictureForm";
+            this.Text = "PictureForm";
             this.ResumeLayout(false);
 
         }

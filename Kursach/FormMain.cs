@@ -96,33 +96,43 @@ namespace Kursach
         }
         private void ToolStripMenuItemGraphF2_Click(object sender, EventArgs e)
         {
-            //if (!dictionary.ContainsKey(enumFoms.FormGraf2))
-            //{
-            //    dictionary.Add(enumFoms.FormGraf2, new FormGraf());
-            //}
-            //else if (dictionary[enumFoms.FormGraf2].IsDisposed())
-            //{
-            //    dictionary[enumFoms.FormGraf2] = new FormGraf();
-            //}
+            if (!dictionary.ContainsKey(enumFoms.FormGraf2))
+            {
+                dictionary.Add(enumFoms.FormGraf2, new FormGraf());
+            }
+            else if (dictionary[enumFoms.FormGraf2].IsDisposed())
+            {
+                dictionary[enumFoms.FormGraf2] = new FormGraf();
+            }
 
-            //dictionary[enumFoms.FormGraf2].AddFunction(2, dataBase.GetResult(typeof(Funtion2)));
-            //dictionary[enumFoms.FormGraf2].Show();
+            dictionary[enumFoms.FormGraf2].AddFunction(2, dataBase.GetResult(typeof(Funtion2)));
+            dictionary[enumFoms.FormGraf2].Show();
         }
         private void ToolStripMenuItemFormulaF1_Click(object sender, EventArgs e)
         {
-            //if (CheckForm(formPicture1))
-            //{
-            //    formPicture1 = new FormBase();
-            //    formPicture1.AddPicture(Lang.language.TextMenuF1 + Lang.language.TextMenuFormula.ToLower(), typeof(Funtion1));
-            //}
+            if (!dictionary.ContainsKey(enumFoms.FormPicture1))
+            {
+                dictionary.Add(enumFoms.FormPicture1, new PictureForm());
+            }
+            else if (dictionary[enumFoms.FormPicture1].IsDisposed())
+            {
+                dictionary[enumFoms.FormPicture1] = new PictureForm();
+            }
+            dictionary[enumFoms.FormPicture1].AddFunction(1,null, typeof(Funtion1));
+            dictionary[enumFoms.FormPicture1].Show();
         }
         private void ToolStripMenuItemFormulaF2_Click(object sender, EventArgs e)
         {
-            //if (CheckForm(formPicture2))
-            //{
-            //    formPicture2 = new FormBase();
-            //    formPicture2.AddPicture(Lang.language.TextMenuF2 + Lang.language.TextMenuFormula.ToLower(), typeof(Funtion2));
-            //}
+            if (!dictionary.ContainsKey(enumFoms.FormPicture2))
+            {
+                dictionary.Add(enumFoms.FormPicture2, new PictureForm());
+            }
+            else if (dictionary[enumFoms.FormPicture2].IsDisposed())
+            {
+                dictionary[enumFoms.FormPicture2] = new PictureForm();
+            }
+            dictionary[enumFoms.FormPicture2].AddFunction(2, null, typeof(Funtion2));
+            dictionary[enumFoms.FormPicture2].Show();
         }
         //private bool CheckForm(FormBase formBase)
         //{
