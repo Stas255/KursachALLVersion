@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 using Kursach.Class;
+using Kursach.Forms;
 
 namespace Kursach
 {
@@ -19,39 +20,15 @@ namespace Kursach
         {
             InitializeComponent();
         }
-
-        public void AddFunction(string name, List<Value> results)
+        public void Show()
         {
-            this.Text = name;
-            this.Size = new System.Drawing.Size(1000, 550);
-            Series series = new Series(name);
-            series.ChartType = SeriesChartType.Line;
-
-            ListBox listBox1 = new ListBox();
-            listBox1.Anchor = (AnchorStyles.Left | AnchorStyles.Top | AnchorStyles.Bottom);
-            listBox1.Size = new System.Drawing.Size(300, 450);
-            listBox1.Location = new System.Drawing.Point(10, 50);
-            listBox1.Items.AddRange(results.Select(e => e.GetInfo()).ToArray());
-            this.Controls.Add(listBox1);
-
-            Chart chart1 = new Chart();
-            Legend legend1 = new Legend();
-            legend1.Name = "Legend1";
-            chart1.Legends.Add(legend1);
-
-            ChartArea chartArea1 = new ChartArea();
-            chartArea1.Name = "ChartArea1";
-            chart1.ChartAreas.Add(chartArea1);
-            chart1.TabIndex = 1;
-            chart1.Size = new System.Drawing.Size(640, 520);
-            chart1.Location = new System.Drawing.Point(360, 0);
-            results.Where(e => e.error == -1).ToList().ForEach(e => series.Points.AddXY(e.x, e.y));
-            chart1.Series.Add(series);
-            chart1.Anchor = (AnchorStyles.Bottom | AnchorStyles.Right | AnchorStyles.Left | AnchorStyles.Top);
-            this.Controls.Add(chart1);
-            Show();
+            base.Show();
         }
 
+        public bool  IsDisposed()
+        {
+            return base.IsDisposed;
+        }
         public void AddPicture(string name, Type type)
         {
             this.Text = name;

@@ -1,17 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
 using System.Windows.Forms;
 using Kursach.Class;
+using Kursach.Forms;
 
 namespace Kursach
 {
     public partial class FormMain : Form
     {
-        FormBase formGraf1, formGraf2;
-        FormBase formPicture1, formPicture2;
-        FormBase formSudent;
-        FormBase FormError;
+        //FormBase formGraf1, formGraf2;
+        //FormBase formPicture1, formPicture2;
+        //FormBase formSudent;
+        //FormBase FormError;
+        enum enumFoms { FormGraf1, FormGraf2, FormPicture1, FormPicture2,FormStudent, FormError };
+        Dictionary<enumFoms, InterfaceRefresh> dictionary = new Dictionary<enumFoms, InterfaceRefresh>();
         private DataBase dataBase;
         public FormMain()
         {
@@ -79,48 +83,60 @@ namespace Kursach
 
         private void grafictToolStripMenuItemGraph1_Click(object sender, EventArgs e)
         {
-            if (CheckForm(formGraf1) && dataBase != null) {
-                formGraf1 = new FormBase();
-                formGraf1.AddFunction(Lang.language.TextMenuF1, dataBase.GetResult(typeof(Funtion1)));
+            if (!dictionary.ContainsKey(enumFoms.FormGraf1)) {
+                dictionary.Add(enumFoms.FormGraf1, new FormGraf());
             }
+            else if (dictionary[enumFoms.FormGraf1].IsDisposed())
+            {
+                dictionary[enumFoms.FormGraf1] = new FormGraf();
+            }
+
+            dictionary[enumFoms.FormGraf1].AddFunction(1, dataBase.GetResult(typeof(Funtion1)));
+            dictionary[enumFoms.FormGraf1].Show();
         }
         private void ToolStripMenuItemGraphF2_Click(object sender, EventArgs e)
         {
-            if (CheckForm(formGraf2) && dataBase != null)
-            {
-                formGraf2 = new FormBase();
-                formGraf2.AddFunction(Lang.language.TextMenuF2, dataBase.GetResult(typeof(Funtion2)));
-            }
+            //if (!dictionary.ContainsKey(enumFoms.FormGraf2))
+            //{
+            //    dictionary.Add(enumFoms.FormGraf2, new FormGraf());
+            //}
+            //else if (dictionary[enumFoms.FormGraf2].IsDisposed())
+            //{
+            //    dictionary[enumFoms.FormGraf2] = new FormGraf();
+            //}
+
+            //dictionary[enumFoms.FormGraf2].AddFunction(2, dataBase.GetResult(typeof(Funtion2)));
+            //dictionary[enumFoms.FormGraf2].Show();
         }
         private void ToolStripMenuItemFormulaF1_Click(object sender, EventArgs e)
         {
-            if (CheckForm(formPicture1))
-            {
-                formPicture1 = new FormBase();
-                formPicture1.AddPicture(Lang.language.TextMenuF1 + Lang.language.TextMenuFormula.ToLower(), typeof(Funtion1));
-            }
+            //if (CheckForm(formPicture1))
+            //{
+            //    formPicture1 = new FormBase();
+            //    formPicture1.AddPicture(Lang.language.TextMenuF1 + Lang.language.TextMenuFormula.ToLower(), typeof(Funtion1));
+            //}
         }
         private void ToolStripMenuItemFormulaF2_Click(object sender, EventArgs e)
         {
-            if (CheckForm(formPicture2))
-            {
-                formPicture2 = new FormBase();
-                formPicture2.AddPicture(Lang.language.TextMenuF2 + Lang.language.TextMenuFormula.ToLower(), typeof(Funtion2));
-            }
+            //if (CheckForm(formPicture2))
+            //{
+            //    formPicture2 = new FormBase();
+            //    formPicture2.AddPicture(Lang.language.TextMenuF2 + Lang.language.TextMenuFormula.ToLower(), typeof(Funtion2));
+            //}
         }
-        private bool CheckForm(FormBase formBase)
-        {
-            if(formBase == null || formBase.IsDisposed)
-            {
-                return true;
-            }
-            else
-            {
-                MessageBox.Show(formBase.Text + Lang.language.ErrorIsOpenForm, Lang.language.TextErrorForMesanger,
-                MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-        }
+        //private bool CheckForm(FormBase formBase)
+        //{
+        //    //if (formBase == null || formBase.IsDisposed)
+        //    //{
+        //    //    return true;
+        //    //}
+        //    //else
+        //    //{
+        //    //    MessageBox.Show(formBase.Text + Lang.language.ErrorIsOpenForm, Lang.language.TextErrorForMesanger,
+        //    //    MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    //    return false;
+        //    //}
+        //}
 
         private void ukrainToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -141,11 +157,11 @@ namespace Kursach
 
         private void інформаціяПроСтудентаToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (CheckForm(formSudent))
-            {
-                formSudent = new FormBase();
-                formSudent.AddPicture("студент");
-            }
+            //if (CheckForm(formSudent))
+            //{
+            //    formSudent = new FormBase();
+            //    formSudent.AddPicture("студент");
+            //}
         }
 
         private void englishToolStripMenuItem_Click(object sender, EventArgs e)
@@ -173,6 +189,9 @@ namespace Kursach
             languagesToolStripMenuItem.Text = Lang.language.TextMenuLang;
             ukrainToolStripMenuItem.Text = Lang.language.TextMenuLangUkr;
             englishToolStripMenuItem.Text = Lang.language.TextMenuLangEng;
+
+            dictionary.Values.ToList().ForEach(e=> e.Refresh());
+
         }
 
         private void kkkk()
