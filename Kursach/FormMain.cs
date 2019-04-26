@@ -31,38 +31,42 @@ namespace Kursach
 
         public bool Check()
         {
-            if (new[] { textBoxXMin, textBoxXMax, textBoxDx }.Any(c => errorProvider1.GetError(c) != string.Empty))
+            try
             {
+                //if (new[] {textBoxXMin, textBoxXMax, textBoxDx, textBoxA}.Any(c =>
+                //    errorProvider1.GetError(c) != string.Empty))
+                //{
+                //}
+                if (new[] {textBoxXMin, textBoxXMax, textBoxDx, textBoxA}.Any(c => string.IsNullOrWhiteSpace(c.Text)))
+                {
+                    MessageBox.Show(Lang.language.ErrorTextIsNull, Lang.language.TextErrorForMesanger,
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
 
-            }
-            if(new[] { textBoxXMin, textBoxXMax, textBoxDx }.Any(c => string.IsNullOrWhiteSpace(c.Text)))
-            {
-                MessageBox.Show(Lang.language.ErrorTextIsNull, Lang.language.TextErrorForMesanger,
-                MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-            //if (Convert.ToDouble(textBoxXMin.Text) > Convert.ToDouble(textBoxXMax.Text))
-            //{
-            //    MessageBox.Show(Lang.language.ErrorMaxLowMin, Lang.language.TextErrorForMesanger,
-            //    MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    return false;
-            //}
-            if (Convert.ToDouble(textBoxDx.Text) == 0.0)
-            {
-                MessageBox.Show(Lang.language.ErrorDxIs0, Lang.language.TextErrorForMesanger,
-                MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
+                if (Convert.ToDouble(textBoxDx.Text) == 0.0)
+                {
+                    MessageBox.Show(Lang.language.ErrorDxIs0, Lang.language.TextErrorForMesanger,
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
 
-            if ((Convert.ToDouble(textBoxXMax.Text) - Convert.ToDouble(textBoxXMin.Text)) *
-                Convert.ToDouble(textBoxDx.Text) < 0)
+                if ((Convert.ToDouble(textBoxXMax.Text) - Convert.ToDouble(textBoxXMin.Text)) *
+                    Convert.ToDouble(textBoxDx.Text) < 0)
+                {
+                    MessageBox.Show(Lang.language.ErrorDx, Lang.language.TextErrorForMesanger,
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    textBoxDx.Text = String.Empty;
+                    return false;
+                }
+                return true;
+            }
+            catch (Exception e)
             {
-                MessageBox.Show(Lang.language.ErrorDx, Lang.language.TextErrorForMesanger,
+                MessageBox.Show(e.ToString(), Lang.language.TextErrorForMesanger,
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
-                textBoxDx.Text = String.Empty;
                 return false;
             }
-            return true;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -80,20 +84,21 @@ namespace Kursach
 
         private void textBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            //char number = e.KeyChar;
-            //if (!Char.IsDigit(number) && number != 8 && number != ',' && number != '-')
-            //{
-            //    e.Handled = true;
-            //}
 
-            //if (number == ',' && ((sender as TextBox).Text.IndexOf(',')) > -1)
-            //{
-            //    e.Handled = true;
-            //}
-            //if (number == '-' && (sender as TextBox).Text != string.Empty)
-            //{
-            //    e.Handled = true;
-            //}
+            char number = e.KeyChar;
+            if (!Char.IsDigit(number) && number != 8 && number != ',' && number != '-')
+            {
+                e.Handled = true;
+            }
+
+            if (number == ',' && ((sender as TextBox).Text.IndexOf(',')) > -1)
+            {
+                e.Handled = true;
+            }
+            if (number == '-' && (sender as TextBox).Text != string.Empty)
+            {
+                e.Handled = true;
+            }
         }
 
         private void grafictToolStripMenuItemGraph1_Click(object sender, EventArgs e)
@@ -149,6 +154,7 @@ namespace Kursach
             dictionary[enumFoms.FormPicture2].AddFunction(null, typeof(Funtion2));
             dictionary[enumFoms.FormPicture2].Show();
         }
+
         //private bool CheckForm(FormBase formBase)
         //{
         //    //if (formBase == null || formBase.IsDisposed)
@@ -284,12 +290,14 @@ namespace Kursach
 
         private void textBoxXMin_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            var text = (sender as TextBox).Text;
-            if(string.IsNullOrWhiteSpace(text)) return;
+            //var text = (sender as TextBox).Text;
+            //if (string.IsNullOrWhiteSpace(text)) return;
 
-            Regex check = new Regex(@"^([-]{0,1}\d+)$");
-            var error = check.IsMatch(text) ? "" : "error1";
-            errorProvider1.SetError(sender as TextBox, error);
+            //Regex check = new Regex(@"^([-]{0,1}\d+)$");
+            //var error = check.IsMatch(text) ? "" : "error1";
+            //errorProvider1.SetError(sender as TextBox, error);
         }
+
     }
+    
 }

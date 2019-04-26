@@ -297,7 +297,6 @@ namespace Kursach
             resources.ApplyResources(this.textBoxXMin, "textBoxXMin");
             this.textBoxXMin.Name = "textBoxXMin";
             this.textBoxXMin.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_KeyPress);
-            this.textBoxXMin.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxXMin_Validating);
             // 
             // labelInputeData
             // 
