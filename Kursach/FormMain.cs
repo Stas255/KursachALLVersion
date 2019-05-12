@@ -59,6 +59,20 @@ namespace Kursach
                     textBoxDx.Text = String.Empty;
                     return false;
                 }
+                foreach (var keyValuePair in dictionary)
+                {
+                    if (!IsShow(keyValuePair.Key))
+                    {
+                        DialogResult result = MessageBox.Show(Lang.language.TextErrorOpenForm+"\n"+Lang.language.TextErrorCloseForm, Lang.language.TextErrorForMesanger,
+                            MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                        if (result == DialogResult.OK)
+                        {
+                            dictionary.Values.ToList().ForEach(e => e.Close());
+                            break;
+                        }
+                        return false;
+                    }
+                }
                 return true;
             }
             catch (Exception e)

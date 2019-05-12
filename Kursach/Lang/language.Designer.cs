@@ -189,11 +189,29 @@ namespace Kursach.Lang {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Закрити вкладки ?.
+        /// </summary>
+        internal static string TextErrorCloseForm {
+            get {
+                return ResourceManager.GetString("TextErrorCloseForm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Ошибка.
         /// </summary>
         internal static string TextErrorForMesanger {
             get {
                 return ResourceManager.GetString("TextErrorForMesanger", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Щоб продовжити закрийте вкладки..
+        /// </summary>
+        internal static string TextErrorOpenForm {
+            get {
+                return ResourceManager.GetString("TextErrorOpenForm", resourceCulture);
             }
         }
         

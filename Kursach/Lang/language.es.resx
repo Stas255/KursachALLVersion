@@ -150,8 +150,14 @@
   <data name="TextError" xml:space="preserve">
     <value>Errors : </value>
   </data>
+  <data name="TextErrorCloseForm" xml:space="preserve">
+    <value>Close tabs?</value>
+  </data>
   <data name="TextErrorForMesanger" xml:space="preserve">
     <value>Error</value>
+  </data>
+  <data name="TextErrorOpenForm" xml:space="preserve">
+    <value>To continue close the tabs.</value>
   </data>
   <data name="TextInputeData" xml:space="preserve">
     <value>Inpute data</value>

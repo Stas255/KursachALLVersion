@@ -10,5 +10,6 @@ namespace Kursach.Forms
         void AddFunction(List<Value> results = null, Type type = null);
         void Show();
         bool IsDisposed();
+        void Close();
     }
 }

@@ -29,5 +29,10 @@ namespace Kursach
         {
             return base.IsDisposed;
         }
+
+        public void Close()
+        {
+            base.Close();
+        }
     }
 }

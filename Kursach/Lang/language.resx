@@ -196,4 +196,10 @@
   <data name="TextIteration" xml:space="preserve">
     <value>Кількість ітерацій: </value>
   </data>
+  <data name="TextErrorCloseForm" xml:space="preserve">
+    <value>Закрити вкладки ?</value>
+  </data>
+  <data name="TextErrorOpenForm" xml:space="preserve">
+    <value>Щоб продовжити закрийте вкладки.</value>
+  </data>
 </root>
