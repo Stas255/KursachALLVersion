@@ -21,21 +21,21 @@ namespace Kursach.Forms
         public void AddFunction(List<Value> results, Type type)
         {
             this.Text = Lang.language.TextStudent;
-            this.Size = new System.Drawing.Size(400, 180);
+            this.Size = new Size(400, 180);
 
             PictureBox pictureBox1 = new PictureBox();
-            Size = new System.Drawing.Size(300, 250);
+            Size = new Size(300, 250);
             label = new Label();
-            label.Text = Lang.language.NameStudnet + Environment.NewLine + Lang.language.GroupStudent;
-            label.Size = new System.Drawing.Size(300, 30);
-            label.Location = new System.Drawing.Point(0, 160);
+            label.Text = Lang.language.NameStudnet;
+            label.Size = new Size(300, 30);
+            label.Location = new Point(0, 160);
             label.TextAlign = ContentAlignment.MiddleCenter;
             label.Anchor = (AnchorStyles.Bottom | AnchorStyles.Right | AnchorStyles.Left);
             this.Controls.Add(label);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.Image = Lang.language._1Funtion;
-            pictureBox1.Size = new System.Drawing.Size(150, 150);
-            pictureBox1.Location = new System.Drawing.Point(75, 0);
+            pictureBox1.Size = new Size(150, 150);
+            pictureBox1.Location = new Point(75, 0);
             pictureBox1.Anchor = (AnchorStyles.Bottom | AnchorStyles.Right | AnchorStyles.Left | AnchorStyles.Top);
             this.Controls.Add(pictureBox1);
             Show();
@@ -45,7 +45,7 @@ namespace Kursach.Forms
         {
             var name = Lang.language.TextStudent;
             this.Text = name;
-            label.Text = Lang.language.NameStudnet + Environment.NewLine + Lang.language.GroupStudent;
+            label.Text = Lang.language.NameStudnet;
         }
     }
 }

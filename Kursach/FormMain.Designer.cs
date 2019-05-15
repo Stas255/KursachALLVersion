@@ -51,9 +51,9 @@ namespace Kursach
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.labelStudent = new System.Windows.Forms.Label();
             this.buttonStart = new System.Windows.Forms.Button();
-            this.labelNameStudent = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.labelInformation = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.textBoxDx = new System.Windows.Forms.TextBox();
@@ -72,7 +72,6 @@ namespace Kursach
             this.statusStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -105,8 +104,8 @@ namespace Kursach
             // 
             // QuantityIterationToolStripMenuItem1
             // 
-            this.QuantityIterationToolStripMenuItem1.Name = "QuantityIterationToolStripMenuItem1";
             resources.ApplyResources(this.QuantityIterationToolStripMenuItem1, "QuantityIterationToolStripMenuItem1");
+            this.QuantityIterationToolStripMenuItem1.Name = "QuantityIterationToolStripMenuItem1";
             this.QuantityIterationToolStripMenuItem1.Click += new System.EventHandler(this.QuantityIterationToolStripMenuItem1_Click);
             // 
             // menuStrip1
@@ -143,8 +142,8 @@ namespace Kursach
             // 
             // QuantityIterationToolStripMenuItem2
             // 
-            this.QuantityIterationToolStripMenuItem2.Name = "QuantityIterationToolStripMenuItem2";
             resources.ApplyResources(this.QuantityIterationToolStripMenuItem2, "QuantityIterationToolStripMenuItem2");
+            this.QuantityIterationToolStripMenuItem2.Name = "QuantityIterationToolStripMenuItem2";
             this.QuantityIterationToolStripMenuItem2.Click += new System.EventHandler(this.QuantityIterationToolStripMenuItem2_Click);
             // 
             // languagesToolStripMenuItem
@@ -210,11 +209,18 @@ namespace Kursach
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.labelStudent);
             this.panel3.Controls.Add(this.buttonStart);
-            this.panel3.Controls.Add(this.labelNameStudent);
-            this.panel3.Controls.Add(this.pictureBox1);
+            this.panel3.Controls.Add(this.labelInformation);
             resources.ApplyResources(this.panel3, "panel3");
             this.panel3.Name = "panel3";
+            // 
+            // labelStudent
+            // 
+            resources.ApplyResources(this.labelStudent, "labelStudent");
+            this.labelStudent.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.labelStudent.Name = "labelStudent";
+            this.labelStudent.Click += new System.EventHandler(this.інформаціяПроСтудентаToolStripMenuItem_Click);
             // 
             // buttonStart
             // 
@@ -223,18 +229,10 @@ namespace Kursach
             this.buttonStart.UseVisualStyleBackColor = true;
             this.buttonStart.Click += new System.EventHandler(this.button1_Click);
             // 
-            // labelNameStudent
+            // labelInformation
             // 
-            resources.ApplyResources(this.labelNameStudent, "labelNameStudent");
-            this.labelNameStudent.Name = "labelNameStudent";
-            this.labelNameStudent.Click += new System.EventHandler(this.інформаціяПроСтудентаToolStripMenuItem_Click);
-            // 
-            // pictureBox1
-            // 
-            resources.ApplyResources(this.pictureBox1, "pictureBox1");
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.інформаціяПроСтудентаToolStripMenuItem_Click);
+            resources.ApplyResources(this.labelInformation, "labelInformation");
+            this.labelInformation.Name = "labelInformation";
             // 
             // panel2
             // 
@@ -334,7 +332,6 @@ namespace Kursach
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
@@ -366,7 +363,6 @@ namespace Kursach
         private System.Windows.Forms.ProgressBar progressBar;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button buttonStart;
-        public System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label labelInputeData;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -380,7 +376,7 @@ namespace Kursach
         private System.Windows.Forms.ToolStripMenuItem languagesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ukrainToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem englishToolStripMenuItem;
-        internal System.Windows.Forms.Label labelNameStudent;
+        internal System.Windows.Forms.Label labelInformation;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelErrorCout;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
@@ -388,6 +384,7 @@ namespace Kursach
         private System.Windows.Forms.ToolStripMenuItem QuantityIterationToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem QuantityIterationToolStripMenuItem2;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.Label labelStudent;
     }
 }
 

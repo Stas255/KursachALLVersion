@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 using Kursach.Class;
@@ -15,6 +13,7 @@ namespace Kursach.Forms
          private Type type;
          private Series series;
          private ListBox listBox1;
+         private Label labelInformation;
         public void AddFunction(List<Value> results, Type type)
         {
             this.results = results;
@@ -27,8 +26,8 @@ namespace Kursach.Forms
 
             listBox1 = new ListBox();
             listBox1.Anchor = (AnchorStyles.Left | AnchorStyles.Top | AnchorStyles.Bottom);
-            listBox1.Size = new System.Drawing.Size(300, 450);
-            listBox1.Location = new System.Drawing.Point(10, 50);
+            listBox1.Size = new System.Drawing.Size(300, 470);
+            listBox1.Location = new System.Drawing.Point(10, 40);
             listBox1.Items.AddRange(results.Select(e => e.GetInfo()).ToArray());
             this.Controls.Add(listBox1);
 
@@ -48,6 +47,12 @@ namespace Kursach.Forms
             chart1.Anchor = (AnchorStyles.Bottom | AnchorStyles.Right | AnchorStyles.Left | AnchorStyles.Top);
             this.Controls.Add(chart1);
 
+            labelInformation = new Label();
+            labelInformation.Text = Lang.language.TextInformationGraf;
+            labelInformation.Size = new System.Drawing.Size(350, 40);
+            labelInformation.Location = new System.Drawing.Point(10,0);
+            this.Controls.Add(labelInformation);
+
             Refresh();
         }
 
@@ -58,6 +63,7 @@ namespace Kursach.Forms
             series.Name = name;
             listBox1.Items.Clear();
             listBox1.Items.AddRange(results.Select(e => e.GetInfo()).ToArray());
+            labelInformation.Text = Lang.language.TextInformationGraf;
         }
     }
 }

@@ -135,11 +135,9 @@
   <data name="ErrorTextIsNull" xml:space="preserve">
     <value>Всі поля повинні бути заповнені</value>
   </data>
-  <data name="GroupStudent" xml:space="preserve">
-    <value>ІТ-71/2</value>
-  </data>
   <data name="NameStudnet" xml:space="preserve">
-    <value>Толстоноженко Станіслав Олегович</value>
+    <value>Толстоноженко Станіслав Олегович
+ІТ-71/2</value>
   </data>
   <data name="TextAboutFormGraf" xml:space="preserve">
     <value>Тут знаходяться результати обчислень та графік а також при яких параметров помилка</value>
@@ -150,14 +148,30 @@
   <data name="TextError" xml:space="preserve">
     <value>Помилки : </value>
   </data>
-  <data name="TextErrorCloseForm" xml:space="preserve">
-    <value>Закрити вкладки ?</value>
-  </data>
   <data name="TextErrorForMesanger" xml:space="preserve">
     <value>Ошибка</value>
   </data>
   <data name="TextErrorOpenForm" xml:space="preserve">
-    <value>Щоб продовжити закрийте вкладки.</value>
+    <value>Щоб продовжити закрийте вкладки.
+Закрити вкладки ?</value>
+  </data>
+  <data name="TextInformation" xml:space="preserve">
+    <value>Щоб продовжити потрібно ввести дані в поля.
+
+В поле можна ввести (0-9 , -).
+
+Якщо забули ввести (-) видаліть всі дані
+з поля і введіть повторно.
+
+Також в полі передбачено запобігання 
+повторне  натискання ',' і '-'.
+
+А також '-' можна ввести тільки 
+на початку введення.</value>
+  </data>
+  <data name="TextInformationGraf" xml:space="preserve">
+    <value>Представлено при яких аргументах 'x' маємо значення 'y'.
+А також помилки при яких значень і графік цих координат.</value>
   </data>
   <data name="TextInputeData" xml:space="preserve">
     <value>Введіть дані</value>
@@ -186,8 +200,15 @@
   <data name="TextMenuLangUkr" xml:space="preserve">
     <value>Українська</value>
   </data>
+  <data name="TextNameMainForm" xml:space="preserve">
+    <value>Початковий екран</value>
+  </data>
   <data name="TextStudent" xml:space="preserve">
     <value>Студент</value>
+  </data>
+  <data name="TextStudentLabel" xml:space="preserve">
+    <value>Натисніть 
+Щоб подивитися інформацію про студента.</value>
   </data>
   <data name="TextTimeWork" xml:space="preserve">
     <value>Час :</value>

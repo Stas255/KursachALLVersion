@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Kursach.Class
@@ -27,9 +26,13 @@ namespace Kursach.Class
          {
             ErrorCout = 0;
             progressBar.Value = 0;
-             if (xMin < xMax)
+            if (xMin == xMax)
+            {
+                CalculateRand(xMin);
+            }
+            else if (xMin < xMax)
              {
-                 progressBar.Maximum = (int)(((xMax - xMin) / dx) + dx) + 1;
+                 progressBar.Maximum = (int)Math.Abs(((xMax - xMin) / dx) + dx + 1);
                 for (double x = xMin; x <= xMax; x += dx)
                  {
                      CalculateRand(x);
@@ -38,7 +41,7 @@ namespace Kursach.Class
              }
              else
              {
-                 progressBar.Maximum = (int)(((xMax - xMin) / dx) - dx) + 1;
+                 progressBar.Maximum = (int)Math.Abs(((xMax - xMin) / dx) - dx + 1);
                 for (double x = xMin; x >= xMax; x += dx)
                  {
                      CalculateRand(x);
@@ -60,7 +63,6 @@ namespace Kursach.Class
              {
                  funtion2.Calculate(x, q);
              }
-             //System.Threading.Thread.Sleep((int)(1000 / (xMax - xMin)));
         } 
 
          public List<Value> GetResult(Type type)

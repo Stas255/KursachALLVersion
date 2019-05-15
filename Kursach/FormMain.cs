@@ -26,7 +26,7 @@ namespace Kursach
         }
         public void CreatePicture()
         {
-            pictureBox1.Image = Lang.language._1Funtion;
+            //pictureBox1.Image = Lang.language._1Funtion;
         }
 
         public bool Check()
@@ -63,7 +63,7 @@ namespace Kursach
                 {
                     if (!IsShow(keyValuePair.Key))
                     {
-                        DialogResult result = MessageBox.Show(Lang.language.TextErrorOpenForm+"\n"+Lang.language.TextErrorCloseForm, Lang.language.TextErrorForMesanger,
+                        DialogResult result = MessageBox.Show(Lang.language.TextErrorOpenForm, Lang.language.TextErrorForMesanger,
                             MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
                         if (result == DialogResult.OK)
                         {
@@ -256,7 +256,9 @@ namespace Kursach
 
         private void Refresh()
         {
-            labelNameStudent.Text = Lang.language.NameStudnet + Environment.NewLine + Lang.language.GroupStudent;
+            this.Text = Lang.language.TextNameMainForm;
+            labelInformation.Text = Lang.language.TextInformation;
+            labelStudent.Text = Lang.language.TextStudentLabel;
             labelInputeData.Text = Lang.language.TextInputeData;
             buttonStart.Text = Lang.language.TextButtomStart;
             toolStripStatusLabelErrors.Text = Lang.language.TextError;

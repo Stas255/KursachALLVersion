@@ -144,16 +144,8 @@ namespace Kursach.Lang {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на ІТ-71/2.
-        /// </summary>
-        internal static string GroupStudent {
-            get {
-                return ResourceManager.GetString("GroupStudent", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Ищет локализованную строку, похожую на Толстоноженко Станіслав Олегович.
+        ///   Ищет локализованную строку, похожую на Толстоноженко Станіслав Олегович
+        ///ІТ-71/2.
         /// </summary>
         internal static string NameStudnet {
             get {
@@ -189,15 +181,6 @@ namespace Kursach.Lang {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Закрити вкладки ?.
-        /// </summary>
-        internal static string TextErrorCloseForm {
-            get {
-                return ResourceManager.GetString("TextErrorCloseForm", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Ищет локализованную строку, похожую на Ошибка.
         /// </summary>
         internal static string TextErrorForMesanger {
@@ -207,11 +190,42 @@ namespace Kursach.Lang {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Щоб продовжити закрийте вкладки..
+        ///   Ищет локализованную строку, похожую на Щоб продовжити закрийте вкладки.
+        ///Закрити вкладки ?.
         /// </summary>
         internal static string TextErrorOpenForm {
             get {
                 return ResourceManager.GetString("TextErrorOpenForm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Щоб продовжити потрібно ввести дані в поля.
+        ///
+        ///В поле можна ввести (0-9 , -).
+        ///
+        ///Якщо забули ввести (-) видаліть всі дані
+        ///з поля і введіть повторно.
+        ///
+        ///Також в полі передбачено запобігання 
+        ///повторне  натискання &apos;,&apos; і &apos;-&apos;.
+        ///
+        ///А також &apos;-&apos; можна ввести тільки 
+        ///на початку введення..
+        /// </summary>
+        internal static string TextInformation {
+            get {
+                return ResourceManager.GetString("TextInformation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Представлено при яких аргументах &apos;x&apos; маємо значення &apos;y&apos;.
+        ///А також помилки при яких значень і графік цих координат..
+        /// </summary>
+        internal static string TextInformationGraf {
+            get {
+                return ResourceManager.GetString("TextInformationGraf", resourceCulture);
             }
         }
         
@@ -297,11 +311,30 @@ namespace Kursach.Lang {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Початковий екран.
+        /// </summary>
+        internal static string TextNameMainForm {
+            get {
+                return ResourceManager.GetString("TextNameMainForm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Студент.
         /// </summary>
         internal static string TextStudent {
             get {
                 return ResourceManager.GetString("TextStudent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Натисніть 
+        ///Щоб подивитися інформацію про студента..
+        /// </summary>
+        internal static string TextStudentLabel {
+            get {
+                return ResourceManager.GetString("TextStudentLabel", resourceCulture);
             }
         }
         

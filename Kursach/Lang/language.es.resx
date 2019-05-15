@@ -135,11 +135,9 @@
   <data name="ErrorTextIsNull" xml:space="preserve">
     <value>All fields must be filled</value>
   </data>
-  <data name="GroupStudent" xml:space="preserve">
-    <value>IT-71/2</value>
-  </data>
   <data name="NameStudnet" xml:space="preserve">
-    <value>Tolstonozhenko Stanislav Olegovich</value>
+    <value>Tolstonozhenko Stanislav Olegovich
+IT-71/2</value>
   </data>
   <data name="TextAboutFormGraf" xml:space="preserve">
     <value>Here are the results of the calculations and the graph, and with which parameters the error</value>
@@ -150,14 +148,30 @@
   <data name="TextError" xml:space="preserve">
     <value>Errors : </value>
   </data>
-  <data name="TextErrorCloseForm" xml:space="preserve">
-    <value>Close tabs?</value>
-  </data>
   <data name="TextErrorForMesanger" xml:space="preserve">
     <value>Error</value>
   </data>
   <data name="TextErrorOpenForm" xml:space="preserve">
-    <value>To continue close the tabs.</value>
+    <value>To continue close the tabs.
+Close tabs?</value>
+  </data>
+  <data name="TextInformation" xml:space="preserve">
+    <value>To continue, you need to enter data in the fields.
+
+In the field you can enter (0-9 , -).
+
+If you forgot to enter (-), delete all data
+from field and enter again.
+
+Also included in the box prevention 
+re-press ',' and '-'.
+
+And '-' can be entered only
+at the beginning of the introduction.</value>
+  </data>
+  <data name="TextInformationGraf" xml:space="preserve">
+    <value>Presented for which arguments 'x' have the value 'y'.
+And also errors in which the values ​​and the graph of these coordinates.</value>
   </data>
   <data name="TextInputeData" xml:space="preserve">
     <value>Inpute data</value>
@@ -186,8 +200,15 @@
   <data name="TextMenuLangUkr" xml:space="preserve">
     <value>Ukrainian</value>
   </data>
+  <data name="TextNameMainForm" xml:space="preserve">
+    <value>Initial screen</value>
+  </data>
   <data name="TextStudent" xml:space="preserve">
     <value>Student</value>
+  </data>
+  <data name="TextStudentLabel" xml:space="preserve">
+    <value>Press
+To view information about student.</value>
   </data>
   <data name="TextTimeWork" xml:space="preserve">
     <value>Time :</value>
