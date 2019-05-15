@@ -154,6 +154,16 @@ namespace Kursach.Lang {
         }
         
         /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Student {
+            get {
+                object obj = ResourceManager.GetObject("Student", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Тут знаходяться результати обчислень та графік а також при яких параметров помилка.
         /// </summary>
         internal static string TextAboutFormGraf {

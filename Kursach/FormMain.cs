@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
-using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using Kursach.Class;
 using Kursach.Forms;
@@ -11,10 +10,7 @@ namespace Kursach
 {
     public partial class FormMain : Form
     {
-        //FormBase formGraf1, formGraf2;
-        //FormBase formPicture1, formPicture2;
-        //FormBase formSudent;
-        //FormBase FormError;
+
         enum enumFoms { FormGraf1, FormGraf2, FormPicture1, FormPicture2,FormStudent, FormError, FormIteration1, FormIteration2 };
         Dictionary<enumFoms, InterfaceRefresh> dictionary = new Dictionary<enumFoms, InterfaceRefresh>();
         private DataBase dataBase;
@@ -22,21 +18,12 @@ namespace Kursach
         {
             InitializeComponent();
             Refresh();
-            CreatePicture();
-        }
-        public void CreatePicture()
-        {
-            //pictureBox1.Image = Lang.language._1Funtion;
         }
 
         public bool Check()
         {
             try
             {
-                //if (new[] {textBoxXMin, textBoxXMax, textBoxDx, textBoxA}.Any(c =>
-                //    errorProvider1.GetError(c) != string.Empty))
-                //{
-                //}
                 if (new[] {textBoxXMin, textBoxXMax, textBoxDx, textBoxA}.Any(c => string.IsNullOrWhiteSpace(c.Text)))
                 {
                     MessageBox.Show(Lang.language.ErrorTextIsNull, Lang.language.TextErrorForMesanger,
@@ -168,21 +155,6 @@ namespace Kursach
             dictionary[enumFoms.FormPicture2].AddFunction(null, typeof(Funtion2));
             dictionary[enumFoms.FormPicture2].Show();
         }
-
-        //private bool CheckForm(FormBase formBase)
-        //{
-        //    //if (formBase == null || formBase.IsDisposed)
-        //    //{
-        //    //    return true;
-        //    //}
-        //    //else
-        //    //{
-        //    //    MessageBox.Show(formBase.Text + Lang.language.ErrorIsOpenForm, Lang.language.TextErrorForMesanger,
-        //    //    MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //    //    return false;
-        //    //}
-        //}
-
         private void ukrainToolStripMenuItem_Click(object sender, EventArgs e)
         {
             System.Threading.Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("uk");
@@ -248,10 +220,6 @@ namespace Kursach
                 dictionary[enumFoms.FormError].AddFunction(dataBase.GetResult(typeof(Funtion1)));
                 dictionary[enumFoms.FormError].Show();
             }
-            else
-            {
-                //ошибка помилок незнайдено
-            }
         }
 
         private void Refresh()
@@ -301,17 +269,6 @@ namespace Kursach
             }
             dictionary[enumFoms.FormIteration2].AddFunction(dataBase.GetResult(typeof(Funtion2)), typeof(Funtion2));
             dictionary[enumFoms.FormIteration2].Show();
-        }
-
-
-        private void textBoxXMin_Validating(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-            //var text = (sender as TextBox).Text;
-            //if (string.IsNullOrWhiteSpace(text)) return;
-
-            //Regex check = new Regex(@"^([-]{0,1}\d+)$");
-            //var error = check.IsMatch(text) ? "" : "error1";
-            //errorProvider1.SetError(sender as TextBox, error);
         }
 
     }
