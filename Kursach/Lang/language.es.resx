@@ -167,7 +167,9 @@ Also included in the box prevention
 re-press ',' and '-'.
 
 And '-' can be entered only
-at the beginning of the introduction.</value>
+at the beginning of the introduction.
+
+Maximum number of characters 9</value>
   </data>
   <data name="TextInformationGraf" xml:space="preserve">
     <value>Presented for which arguments 'x' have the value 'y'.
@@ -177,7 +179,7 @@ And also errors in which the values ​​and the graph of these coordinates.</v
     <value>Inpute data</value>
   </data>
   <data name="TextIteration" xml:space="preserve">
-    <value>Quantity iterations: </value>
+    <value>Quantity iterations </value>
   </data>
   <data name="TextMenuF1" xml:space="preserve">
     <value>Function 1</value>

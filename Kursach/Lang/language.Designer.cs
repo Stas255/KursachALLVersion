@@ -221,7 +221,9 @@ namespace Kursach.Lang {
         ///повторне  натискання &apos;,&apos; і &apos;-&apos;.
         ///
         ///А також &apos;-&apos; можна ввести тільки 
-        ///на початку введення..
+        ///на початку введення.
+        ///
+        ///Максимальне число символов 9.
         /// </summary>
         internal static string TextInformation {
             get {
@@ -249,7 +251,7 @@ namespace Kursach.Lang {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Кількість ітерацій: .
+        ///   Ищет локализованную строку, похожую на Кількість ітерацій.
         /// </summary>
         internal static string TextIteration {
             get {

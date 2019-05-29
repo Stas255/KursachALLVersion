@@ -7,7 +7,7 @@ namespace Kursach.Forms
     interface InterfaceRefresh
     {
         void Refresh();
-        void AddFunction(List<Value> results = null, Type type = null);
+        void AddFunction( Type type = null, List<Value> results = null);
         void Show();
         bool IsDisposed();
         void Close();

@@ -24,14 +24,14 @@ namespace Kursach
         {
             try
             {
-                if (new[] {textBoxXMin, textBoxXMax, textBoxDx, textBoxA}.Any(c => string.IsNullOrWhiteSpace(c.Text)))
+                if (new[] {textBoxXMin, textBoxXMax, textBoxDx, textBoxA}.Any(c => string.IsNullOrWhiteSpace(c.Text)))  //Перевіряє чи немає незаповнених значень
                 {
                     MessageBox.Show(Lang.language.ErrorTextIsNull, Lang.language.TextErrorForMesanger,
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
 
-                if (Convert.ToDouble(textBoxDx.Text) == 0.0)
+                if (Convert.ToDouble(textBoxDx.Text) == 0.0)    //Перевіряє крок на значення 0
                 {
                     MessageBox.Show(Lang.language.ErrorDxIs0, Lang.language.TextErrorForMesanger,
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -39,7 +39,7 @@ namespace Kursach
                 }
 
                 if ((Convert.ToDouble(textBoxXMax.Text) - Convert.ToDouble(textBoxXMin.Text)) *
-                    Convert.ToDouble(textBoxDx.Text) < 0)
+                    Convert.ToDouble(textBoxDx.Text) < 0)   //Перевіряє чи правильно введений крок
                 {
                     MessageBox.Show(Lang.language.ErrorDx, Lang.language.TextErrorForMesanger,
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -48,13 +48,14 @@ namespace Kursach
                 }
                 foreach (var keyValuePair in dictionary)
                 {
-                    if (!IsShow(keyValuePair.Key))
+                    if (!IsShow(keyValuePair.Key))  //Перевіряє чи відкриті побічні форми
                     {
                         DialogResult result = MessageBox.Show(Lang.language.TextErrorOpenForm, Lang.language.TextErrorForMesanger,
                             MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
                         if (result == DialogResult.OK)
                         {
-                            dictionary.Values.ToList().ForEach(e => e.Close());
+                            dictionary.Values.ToList().ForEach(e => e.Close()); //Закриває всі форми кроми головної
+                            dictionary.Clear(); //Видаляє всі ключі і значення
                             break;
                         }
                         return false;
@@ -62,7 +63,7 @@ namespace Kursach
                 }
                 return true;
             }
-            catch (Exception e)
+            catch (Exception e) //Приймає інші помилки
             {
                 MessageBox.Show(e.ToString(), Lang.language.TextErrorForMesanger,
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -87,16 +88,16 @@ namespace Kursach
         {
 
             char number = e.KeyChar;
-            if (!Char.IsDigit(number) && number != 8 && number != ',' && number != '-')
+            if (!Char.IsDigit(number) && number != 8 && number != ',' && number != '-') //Перевіряє чи є нажатий символ чиcлом, Backspace, (,), (-)
             {
                 e.Handled = true;
             }
 
-            if (number == ',' && ((sender as TextBox).Text.IndexOf(',')) > -1)
+            if (number == ',' && ((sender as TextBox).Text.IndexOf(',')) > -1)  //Перевіряє щоб неповторялась кома
             {
                 e.Handled = true;
             }
-            if (number == '-' && (sender as TextBox).Text != string.Empty)
+            if (number == '-' && (sender as TextBox).Text != string.Empty)  //Перевіряє щоб (-) був спочатку
             {
                 e.Handled = true;
             }
@@ -104,56 +105,42 @@ namespace Kursach
 
         private void grafictToolStripMenuItemGraph1_Click(object sender, EventArgs e)
         {
-            if (!dictionary.ContainsKey(enumFoms.FormGraf1)) {
-                dictionary.Add(enumFoms.FormGraf1, new FormGraf());
-            }
-            else if (dictionary[enumFoms.FormGraf1].IsDisposed())
-            {
-                dictionary[enumFoms.FormGraf1] = new FormGraf();
-            }
-
-            dictionary[enumFoms.FormGraf1].AddFunction(dataBase.GetResult(typeof(Funtion1)), typeof(Funtion1));
-            dictionary[enumFoms.FormGraf1].Show();
+            CheckAndCreateFuntion(enumFoms.FormGraf1, typeof(Funtion1), new FormGraf());
         }
         private void ToolStripMenuItemGraphF2_Click(object sender, EventArgs e)
         {
-            if (!dictionary.ContainsKey(enumFoms.FormGraf2))
-            {
-                dictionary.Add(enumFoms.FormGraf2, new FormGraf());
-            }
-            else if (dictionary[enumFoms.FormGraf2].IsDisposed())
-            {
-                dictionary[enumFoms.FormGraf2] = new FormGraf();
-            }
-
-            dictionary[enumFoms.FormGraf2].AddFunction(dataBase.GetResult(typeof(Funtion2)), typeof(Funtion2));
-            dictionary[enumFoms.FormGraf2].Show();
+            CheckAndCreateFuntion(enumFoms.FormGraf2, typeof(Funtion2), new FormGraf());
         }
         private void ToolStripMenuItemFormulaF1_Click(object sender, EventArgs e)
         {
-            if (!dictionary.ContainsKey(enumFoms.FormPicture1))
-            {
-                dictionary.Add(enumFoms.FormPicture1, new PictureForm());
-            }
-            else if (dictionary[enumFoms.FormPicture1].IsDisposed())
-            {
-                dictionary[enumFoms.FormPicture1] = new PictureForm();
-            }
-            dictionary[enumFoms.FormPicture1].AddFunction(null, typeof(Funtion1));
-            dictionary[enumFoms.FormPicture1].Show();
+            CheckAndCreateFuntion(enumFoms.FormPicture1, typeof(Funtion1), new PictureForm());
         }
         private void ToolStripMenuItemFormulaF2_Click(object sender, EventArgs e)
         {
-            if (!dictionary.ContainsKey(enumFoms.FormPicture2))
+            CheckAndCreateFuntion(enumFoms.FormPicture2, typeof(Funtion2), new PictureForm());
+        }
+        private void QuantityIterationToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            CheckAndCreateFuntion(enumFoms.FormIteration1, typeof(Funtion1), new FormQuantityIterations());
+        }
+
+        private void QuantityIterationToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            CheckAndCreateFuntion(enumFoms.FormIteration1, typeof(Funtion1), new FormQuantityIterations());
+        }
+        private void CheckAndCreateFuntion(enumFoms enumFuntion, Type type, Forms.InterfaceRefresh newForm)
+        {
+            if (!dictionary.ContainsKey(enumFuntion))
             {
-                dictionary.Add(enumFoms.FormPicture2, new PictureForm());
+                dictionary.Add(enumFuntion, newForm);
             }
-            else if (dictionary[enumFoms.FormPicture2].IsDisposed())
+            else if (dictionary[enumFuntion].IsDisposed())
             {
-                dictionary[enumFoms.FormPicture2] = new PictureForm();
+                dictionary[enumFuntion] = newForm;
             }
-            dictionary[enumFoms.FormPicture2].AddFunction(null, typeof(Funtion2));
-            dictionary[enumFoms.FormPicture2].Show();
+
+            dictionary[enumFuntion].AddFunction(type,dataBase == null? null: dataBase.GetResult(type));
+            dictionary[enumFuntion].Show();
         }
         private void ukrainToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -217,7 +204,7 @@ namespace Kursach
                     dictionary[enumFoms.FormError] = new FormErrors();
                 }
 
-                dictionary[enumFoms.FormError].AddFunction(dataBase.GetResult(typeof(Funtion1)));
+                dictionary[enumFoms.FormError].AddFunction(null, dataBase.GetResult(typeof(Funtion1)));
                 dictionary[enumFoms.FormError].Show();
             }
         }
@@ -235,42 +222,15 @@ namespace Kursach
             ToolStripMenuItemF2.Text = Lang.language.TextMenuF2;
             ToolStripMenuItemGraphF1.Text = ToolStripMenuItemGraphF2.Text = Lang.language.TextMenuGraf;
             ToolStripMenuItemFormulaF1.Text = ToolStripMenuItemFormulaF2.Text = Lang.language.TextMenuFormula;
+            QuantityIterationToolStripMenuItem1.Text =
+                QuantityIterationToolStripMenuItem2.Text = Lang.language.TextIteration;
             languagesToolStripMenuItem.Text = Lang.language.TextMenuLang;
             ukrainToolStripMenuItem.Text = Lang.language.TextMenuLangUkr;
             englishToolStripMenuItem.Text = Lang.language.TextMenuLangEng;
 
-            dictionary.Values.ToList().ForEach(e=> e.Refresh());
+            dictionary.Values.Where(e=> !e.IsDisposed()).ToList().ForEach(e => e.Refresh());
 
         }
-
-        private void QuantityIterationToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            if (!dictionary.ContainsKey(enumFoms.FormIteration1))
-            {
-                dictionary.Add(enumFoms.FormIteration1, new FormQuantityIterations());
-            }
-            else if (dictionary[enumFoms.FormIteration1].IsDisposed())
-            {
-                dictionary[enumFoms.FormIteration1] = new FormQuantityIterations();
-            }
-            dictionary[enumFoms.FormIteration1].AddFunction(dataBase.GetResult(typeof(Funtion1)), typeof(Funtion1));
-            dictionary[enumFoms.FormIteration1].Show();
-        }
-
-        private void QuantityIterationToolStripMenuItem2_Click(object sender, EventArgs e)
-        {
-            if (!dictionary.ContainsKey(enumFoms.FormIteration2))
-            {
-                dictionary.Add(enumFoms.FormIteration2, new FormQuantityIterations());
-            }
-            else if (dictionary[enumFoms.FormIteration2].IsDisposed())
-            {
-                dictionary[enumFoms.FormIteration2] = new FormQuantityIterations();
-            }
-            dictionary[enumFoms.FormIteration2].AddFunction(dataBase.GetResult(typeof(Funtion2)), typeof(Funtion2));
-            dictionary[enumFoms.FormIteration2].Show();
-        }
-
     }
     
 }

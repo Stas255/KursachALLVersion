@@ -20,7 +20,7 @@ namespace Kursach.Forms
         {
             InitializeComponent();
         }
-        public void AddFunction(List<Value> results, Type type)
+        public void AddFunction(Type type, List<Value> results)
         {
             this.type = type;
             var name = type == typeof(Funtion1) ? Lang.language.TextMenuF1 : Lang.language.TextMenuF2;
@@ -38,7 +38,7 @@ namespace Kursach.Forms
         {
             var name = type == typeof(Funtion1) ? Lang.language.TextMenuF1 : Lang.language.TextMenuF2;
             this.Text = name;
-            label.Text = Lang.language.TextIteration + results.Count;
+            label.Text = $"{Lang.language.TextIteration}: {results.Count}";
         }
     }
 }

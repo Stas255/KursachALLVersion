@@ -167,7 +167,9 @@
 повторне  натискання ',' і '-'.
 
 А також '-' можна ввести тільки 
-на початку введення.</value>
+на початку введення.
+
+Максимальне число символов 9</value>
   </data>
   <data name="TextInformationGraf" xml:space="preserve">
     <value>Представлено при яких аргументах 'x' маємо значення 'y'.
@@ -177,7 +179,7 @@
     <value>Введіть дані</value>
   </data>
   <data name="TextIteration" xml:space="preserve">
-    <value>Кількість ітерацій: </value>
+    <value>Кількість ітерацій </value>
   </data>
   <data name="TextMenuF1" xml:space="preserve">
     <value>Функція 1 </value>

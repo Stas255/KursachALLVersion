@@ -192,7 +192,7 @@
     <value>Неможна виконувати дію з таким кроком</value>
   </data>
   <data name="TextIteration" xml:space="preserve">
-    <value>Кількість ітерацій: </value>
+    <value>Кількість ітерацій</value>
   </data>
   <data name="TextErrorOpenForm" xml:space="preserve">
     <value>Щоб продовжити закрийте вкладки.
@@ -213,7 +213,9 @@
 повторне  натискання ',' і '-'.
 
 А також '-' можна ввести тільки 
-на початку введення.</value>
+на початку введення.
+
+Максимальне число символов 9</value>
   </data>
   <data name="TextInformationGraf" xml:space="preserve">
     <value>Представлено при яких аргументах 'x' маємо значення 'y'.

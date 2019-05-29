@@ -14,7 +14,7 @@ namespace Kursach.Forms
          private Series series;
          private ListBox listBox1;
          private Label labelInformation;
-        public void AddFunction(List<Value> results, Type type)
+        public void AddFunction(Type type, List<Value> results)
         {
             this.results = results;
             this.type = type;
@@ -60,7 +60,7 @@ namespace Kursach.Forms
         {
             var name = type == typeof(Funtion1) ? Lang.language.TextMenuF1 : Lang.language.TextMenuF2;
             this.Text = name;
-            series.Name = name;
+            series = new Series(name);
             listBox1.Items.Clear();
             listBox1.Items.AddRange(results.Select(e => e.GetInfo()).ToArray());
             labelInformation.Text = Lang.language.TextInformationGraf;

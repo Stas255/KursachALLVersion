@@ -18,7 +18,7 @@ namespace Kursach.Forms
         {
             InitializeComponent();
         }
-        public void AddFunction(List<Value> results, Type type)
+        public void AddFunction(Type type, List<Value> results)
         {
             this.Text = Lang.language.TextStudent;
             this.Size = new Size(400, 180);

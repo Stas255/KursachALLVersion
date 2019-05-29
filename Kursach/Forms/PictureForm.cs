@@ -13,7 +13,7 @@ namespace Kursach.Forms
     {
         private Type type;
 
-        public void AddFunction(List<Value> results, Type type)
+        public void AddFunction(Type type, List<Value> results)
         { 
             this.type = type;
             var name = type == typeof(Funtion1) ? Lang.language.TextMenuF1 : Lang.language.TextMenuF2;

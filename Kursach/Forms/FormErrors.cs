@@ -19,7 +19,7 @@ namespace Kursach.Forms
         {
             InitializeComponent();
         }
-        public void AddFunction(List<Value> results, Type type)
+        public void AddFunction(Type type, List<Value> results)
         {
             this.Text = Lang.language.TextErrorForMesanger;
             this.Size = new System.Drawing.Size(390, 205);
