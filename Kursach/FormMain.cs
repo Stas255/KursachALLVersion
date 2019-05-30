@@ -23,7 +23,6 @@ namespace Kursach
         /// <summary>
         /// Робить перевірки всіх TexBox
         /// </summary>
-        /// <returns></returns>
         public bool Check()
         {
             try
@@ -90,8 +89,6 @@ namespace Kursach
         /// <summary>
         /// Робить перевірку введеного символа на допустимі значення
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void textBox_KeyPress(object sender, KeyPressEventArgs e)
         {
 
@@ -157,9 +154,6 @@ namespace Kursach
         /// <summary>
         /// Створює s відкриває Form
         /// </summary>
-        /// <param name="enumFuntion"></param>
-        /// <param name="type"></param>
-        /// <param name="newForm"></param>
         private void CheckAndCreateFuntion(enumFoms enumFuntion, Type type, Forms.InterfaceRefresh newForm)
         {
             if (!dictionary.ContainsKey(enumFuntion))
@@ -177,8 +171,6 @@ namespace Kursach
         /// <summary>
         /// Змінює мову в програмі
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void LanguageToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (sender == ukrainToolStripMenuItem)
@@ -194,8 +186,6 @@ namespace Kursach
         /// <summary>
         /// Визначає чи відкрита форми
         /// </summary>
-        /// <param name="enumFom"></param>
-        /// <returns></returns>
         private bool IsShow(enumFoms enumFom)
         {
             return (!dictionary.ContainsKey(enumFom) || dictionary[enumFom].IsDisposed());
@@ -204,8 +194,6 @@ namespace Kursach
         /// <summary>
         /// Скриває підменю якщо відкрите або немає даних 
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void ToolStripMenuItemGraph_EnabledChanged(object sender, EventArgs e)
         {
             (sender as ToolStripMenuItem).DropDownItems[0].Enabled = (dataBase != null && IsShow(sender == ToolStripMenuItemF1?
@@ -222,8 +210,6 @@ namespace Kursach
         /// <summary>
         /// Показує час
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void timer1_Tick(object sender, EventArgs e)
         {
             toolStripStatusLabel1.Text = DateTime.Now.ToString("h:mm:ss tt");
