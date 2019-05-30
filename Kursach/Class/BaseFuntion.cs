@@ -6,16 +6,26 @@ using System.Threading.Tasks;
 
 namespace Kursach.Class
 {
+    /// <summary>
+    /// Зберігає координати і ошибки
+    /// </summary>
     public class Value
     {
         public double x, y, q, a;
         public int error = -1;
+        /// <summary>
+        /// Зберігає координати в яких немає ошибки
+        /// </summary>
         public Value(double x, double y, double q)
         {
             this.x = x;
             this.y = y;
             this.q = q;
         }
+
+        /// <summary>
+        /// Зберігає координати і номер ошибки
+        /// </summary>
         public Value(int error, double x, double q, double a)
         {
             this.a = a;
@@ -23,12 +33,18 @@ namespace Kursach.Class
             this.x = x;
             this.error = error;
         }
+
+        /// <summary>
+        /// Виводить інформацію про координату з ошибкой
+        /// </summary>
         public string GetInfo()
         {
             if (error == -1) return GetInforNotError();
             return $"{Lang.language.ErrorDiscribe} X = {Math.Round(x, 7)}, Q = {Math.Round(q, 7)}, A = {Math.Round(a, 7)}. {Lang.language.Errors.Split(',')[error]}";
         }
-
+        /// <summary>
+        /// Виводить інформацію про координату яка немає ошибки
+        /// </summary>
         public string GetInforNotError()
         {
             if (error != -1) return String.Empty;
@@ -36,6 +52,9 @@ namespace Kursach.Class
         }
     }
 
+    /// <summary>
+    /// Базовий клас з всіми координатами
+    /// </summary>
     abstract class BaseFuntion
     {
         protected double A { set; get; }
@@ -45,9 +64,15 @@ namespace Kursach.Class
             ValueList = new List<Value>();
             this.A = a;
         }
+        /// <summary>
+        /// Робить обчислення
+        /// </summary>
         abstract public void Calculate(double x, double q);
     }
 
+    /// <summary>
+    /// Клас функції 1
+    /// </summary>
     class Funtion1 : BaseFuntion
     {
         public Funtion1(double a): base(a){}
@@ -66,6 +91,10 @@ namespace Kursach.Class
             }
 
         }
+
+        /// <summary>
+        /// Робить перевірку на ОДЗ
+        /// </summary>
         private int Check(double x, double q)
         {
             if (A + x == 0)
@@ -79,7 +108,9 @@ namespace Kursach.Class
             return -1;
         }
     }
-
+    /// <summary>
+    /// Клас функції 2
+    /// </summary>
     class Funtion2 : BaseFuntion
     {
         public Funtion2(double a) : base(a) { }

@@ -6,6 +6,9 @@ using System.Windows.Forms;
 
 namespace Kursach.Class
 {
+    /// <summary>
+    /// Клас для зберігання всих данних
+    /// </summary>
     class DataBase
     {
         Random random = new Random();
@@ -13,6 +16,7 @@ namespace Kursach.Class
         private BaseFuntion funtion1;
         private BaseFuntion funtion2;
         private double xMin, xMax, dx;
+
         public DataBase(double a, double xMax, double xMin, double dx)
         {
             funtion1 = new Funtion1(a);
@@ -22,21 +26,29 @@ namespace Kursach.Class
             this.dx = dx;
         }
 
+        /// <summary>
+        /// Початок роботи класа
+        /// </summary>
         public void Start(ProgressBar progressBar)
         {
             ErrorCout = 0;
             progressBar.Value = 0;
             progressBar.Maximum = 100;
+            int iteration = 0;
             for (double x = xMin; x <= xMax; x += dx)
             {
                 CalculateRand(x);
                 progressBar.Value = (xMin < xMax)
-                    ? (int)Math.Abs(x / ((xMax - xMin) / dx))
-                    : (int)Math.Abs(x / ((xMin + xMax) / dx));
+                    ? (int)Math.Abs(iteration * 100 / ((xMax - xMin) / dx))
+                    : (int)Math.Abs(iteration * 100 / ((xMin + xMax) / dx));
+                iteration++;
             }
             progressBar.Value = progressBar.Maximum;
         }
 
+        /// <summary>
+        /// Визиває обчислення рандомної функції 
+        /// </summary>
         private void CalculateRand(double x)
         {
             double q = random.NextDouble();
@@ -50,6 +62,9 @@ namespace Kursach.Class
             }
         }
 
+        /// <summary>
+        /// Повертає об'єкт List&lt;Value&gt; для поточного класа
+        /// </summary>
         public List<Value> GetResult(Type type)
         {
             if (funtion1.GetType() == type)

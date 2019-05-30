@@ -88,7 +88,7 @@ namespace Kursach
             this.QuantityIterationToolStripMenuItem1});
             this.ToolStripMenuItemF1.Name = "ToolStripMenuItemF1";
             resources.ApplyResources(this.ToolStripMenuItemF1, "ToolStripMenuItemF1");
-            this.ToolStripMenuItemF1.DropDownOpened += new System.EventHandler(this.ToolStripMenuItemGraph_EnabledChanged1);
+            this.ToolStripMenuItemF1.DropDownOpened += new System.EventHandler(this.ToolStripMenuItemGraph_EnabledChanged);
             // 
             // ToolStripMenuItemGraphF1
             // 
@@ -126,7 +126,7 @@ namespace Kursach
             this.QuantityIterationToolStripMenuItem2});
             this.ToolStripMenuItemF2.Name = "ToolStripMenuItemF2";
             resources.ApplyResources(this.ToolStripMenuItemF2, "ToolStripMenuItemF2");
-            this.ToolStripMenuItemF2.DropDownOpened += new System.EventHandler(this.ToolStripMenuItemGraph_EnabledChanged2);
+            this.ToolStripMenuItemF2.DropDownOpened += new System.EventHandler(this.ToolStripMenuItemGraph_EnabledChanged);
             // 
             // ToolStripMenuItemGraphF2
             // 
@@ -158,13 +158,13 @@ namespace Kursach
             // 
             this.ukrainToolStripMenuItem.Name = "ukrainToolStripMenuItem";
             resources.ApplyResources(this.ukrainToolStripMenuItem, "ukrainToolStripMenuItem");
-            this.ukrainToolStripMenuItem.Click += new System.EventHandler(this.ukrainToolStripMenuItem_Click);
+            this.ukrainToolStripMenuItem.Click += new System.EventHandler(this.LanguageToolStripMenuItem_Click);
             // 
             // englishToolStripMenuItem
             // 
             this.englishToolStripMenuItem.Name = "englishToolStripMenuItem";
             resources.ApplyResources(this.englishToolStripMenuItem, "englishToolStripMenuItem");
-            this.englishToolStripMenuItem.Click += new System.EventHandler(this.englishToolStripMenuItem_Click);
+            this.englishToolStripMenuItem.Click += new System.EventHandler(this.LanguageToolStripMenuItem_Click);
             // 
             // statusStrip1
             // 
@@ -220,7 +220,7 @@ namespace Kursach
             resources.ApplyResources(this.labelStudent, "labelStudent");
             this.labelStudent.ForeColor = System.Drawing.SystemColors.Highlight;
             this.labelStudent.Name = "labelStudent";
-            this.labelStudent.Click += new System.EventHandler(this.інформаціяПроСтудентаToolStripMenuItem_Click);
+            this.labelStudent.Click += new System.EventHandler(this.InformationAboutStudentToolStripMenuItem_Click);
             // 
             // buttonStart
             // 

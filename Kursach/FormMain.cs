@@ -14,12 +14,16 @@ namespace Kursach
         enum enumFoms { FormGraf1, FormGraf2, FormPicture1, FormPicture2,FormStudent, FormError, FormIteration1, FormIteration2 };
         Dictionary<enumFoms, InterfaceRefresh> dictionary = new Dictionary<enumFoms, InterfaceRefresh>();
         private DataBase dataBase;
+
         public FormMain()
         {
             InitializeComponent();
             Refresh();
         }
-
+        /// <summary>
+        /// Робить перевірки всіх TexBox
+        /// </summary>
+        /// <returns></returns>
         public bool Check()
         {
             try
@@ -83,7 +87,11 @@ namespace Kursach
                 toolStripStatusLabelErrorCout.Text = DataBase.ErrorCout.ToString();
             }
         }
-
+        /// <summary>
+        /// Робить перевірку введеного символа на допустимі значення
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void textBox_KeyPress(object sender, KeyPressEventArgs e)
         {
 
@@ -107,18 +115,22 @@ namespace Kursach
         {
             CheckAndCreateFuntion(enumFoms.FormGraf1, typeof(Funtion1), new FormGraf());
         }
+
         private void ToolStripMenuItemGraphF2_Click(object sender, EventArgs e)
         {
             CheckAndCreateFuntion(enumFoms.FormGraf2, typeof(Funtion2), new FormGraf());
         }
+
         private void ToolStripMenuItemFormulaF1_Click(object sender, EventArgs e)
         {
             CheckAndCreateFuntion(enumFoms.FormPicture1, typeof(Funtion1), new PictureForm());
         }
+
         private void ToolStripMenuItemFormulaF2_Click(object sender, EventArgs e)
         {
             CheckAndCreateFuntion(enumFoms.FormPicture2, typeof(Funtion2), new PictureForm());
         }
+
         private void QuantityIterationToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             CheckAndCreateFuntion(enumFoms.FormIteration1, typeof(Funtion1), new FormQuantityIterations());
@@ -128,6 +140,26 @@ namespace Kursach
         {
             CheckAndCreateFuntion(enumFoms.FormIteration1, typeof(Funtion1), new FormQuantityIterations());
         }
+
+        private void InformationAboutStudentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CheckAndCreateFuntion(enumFoms.FormStudent, null, new FormAboutStudent());
+        }
+
+        private void toolStripStatusLabelErrorCout_Click(object sender, EventArgs e)
+        {
+            if (Int32.Parse(toolStripStatusLabelErrorCout.Text) != 0) //Робить перевірку чи мають функції ошибки
+            {
+                CheckAndCreateFuntion(enumFoms.FormError, typeof(Funtion1), new FormErrors());
+            }
+        }
+
+        /// <summary>
+        /// Створює s відкриває Form
+        /// </summary>
+        /// <param name="enumFuntion"></param>
+        /// <param name="type"></param>
+        /// <param name="newForm"></param>
         private void CheckAndCreateFuntion(enumFoms enumFuntion, Type type, Forms.InterfaceRefresh newForm)
         {
             if (!dictionary.ContainsKey(enumFuntion))
@@ -142,73 +174,64 @@ namespace Kursach
             dictionary[enumFuntion].AddFunction(type,dataBase == null? null: dataBase.GetResult(type));
             dictionary[enumFuntion].Show();
         }
-        private void ukrainToolStripMenuItem_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Змінює мову в програмі
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void LanguageToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            System.Threading.Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("uk");
+            if (sender == ukrainToolStripMenuItem)
+            {
+                System.Threading.Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("uk");
+            }
+            else
+            {
+                System.Threading.Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("es");
+            }
             Refresh();
         }
-
+        /// <summary>
+        /// Визначає чи відкрита форми
+        /// </summary>
+        /// <param name="enumFom"></param>
+        /// <returns></returns>
         private bool IsShow(enumFoms enumFom)
         {
             return (!dictionary.ContainsKey(enumFom) || dictionary[enumFom].IsDisposed());
         }
 
-        private void ToolStripMenuItemGraph_EnabledChanged1(object sender, EventArgs e)
+        /// <summary>
+        /// Скриває підменю якщо відкрите або немає даних 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ToolStripMenuItemGraph_EnabledChanged(object sender, EventArgs e)
         {
-            (sender as ToolStripMenuItem).DropDownItems[0].Enabled = (dataBase != null && IsShow(enumFoms.FormGraf1));
-            (sender as ToolStripMenuItem).DropDownItems[1].Enabled = IsShow(enumFoms.FormPicture1);
-            (sender as ToolStripMenuItem).DropDownItems[2].Enabled = (dataBase != null && IsShow(enumFoms.FormIteration1));
-        }
-        private void ToolStripMenuItemGraph_EnabledChanged2(object sender, EventArgs e)
-        {
-            (sender as ToolStripMenuItem).DropDownItems[0].Enabled = (dataBase != null && IsShow(enumFoms.FormGraf2));
-            (sender as ToolStripMenuItem).DropDownItems[1].Enabled = IsShow(enumFoms.FormPicture2);
-            (sender as ToolStripMenuItem).DropDownItems[2].Enabled = (dataBase != null && IsShow(enumFoms.FormIteration2));
+            (sender as ToolStripMenuItem).DropDownItems[0].Enabled = (dataBase != null && IsShow(sender == ToolStripMenuItemF1?
+                                                                          enumFoms.FormGraf1:
+                                                                          enumFoms.FormGraf2));
+            (sender as ToolStripMenuItem).DropDownItems[1].Enabled = IsShow(sender == ToolStripMenuItemF1?
+                                                                          enumFoms.FormPicture1:
+                                                                          enumFoms.FormPicture2);
+            (sender as ToolStripMenuItem).DropDownItems[2].Enabled = (dataBase != null && IsShow(sender == ToolStripMenuItemF1?
+                                                                          enumFoms.FormIteration1:
+                                                                          enumFoms.FormIteration2));
         }
 
+        /// <summary>
+        /// Показує час
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void timer1_Tick(object sender, EventArgs e)
         {
             toolStripStatusLabel1.Text = DateTime.Now.ToString("h:mm:ss tt");
         }
 
-        private void інформаціяПроСтудентаToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (!dictionary.ContainsKey(enumFoms.FormStudent))
-            {
-                dictionary.Add(enumFoms.FormStudent, new FormAboutStudent());
-            }
-            else if (dictionary[enumFoms.FormStudent].IsDisposed())
-            {
-                dictionary[enumFoms.FormStudent] = new FormAboutStudent();
-            }
-            dictionary[enumFoms.FormStudent].AddFunction();
-            dictionary[enumFoms.FormStudent].Show();
-        }
-
-        private void englishToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            System.Threading.Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("es");
-            Refresh();
-        }
-
-        private void toolStripStatusLabelErrorCout_Click(object sender, EventArgs e)
-        {
-            if (Int32.Parse(toolStripStatusLabelErrorCout.Text) != 0)
-            {
-                if (!dictionary.ContainsKey(enumFoms.FormError))
-                {
-                    dictionary.Add(enumFoms.FormError, new FormErrors());
-                }
-                else if (dictionary[enumFoms.FormError].IsDisposed())
-                {
-                    dictionary[enumFoms.FormError] = new FormErrors();
-                }
-
-                dictionary[enumFoms.FormError].AddFunction(null, dataBase.GetResult(typeof(Funtion1)));
-                dictionary[enumFoms.FormError].Show();
-            }
-        }
-
+        /// <summary>
+        /// Робить оновлення даних
+        /// </summary>
         private void Refresh()
         {
             this.Text = Lang.language.TextNameMainForm;
@@ -223,7 +246,7 @@ namespace Kursach
             ToolStripMenuItemGraphF1.Text = ToolStripMenuItemGraphF2.Text = Lang.language.TextMenuGraf;
             ToolStripMenuItemFormulaF1.Text = ToolStripMenuItemFormulaF2.Text = Lang.language.TextMenuFormula;
             QuantityIterationToolStripMenuItem1.Text =
-                QuantityIterationToolStripMenuItem2.Text = Lang.language.TextIteration;
+            QuantityIterationToolStripMenuItem2.Text = Lang.language.TextIteration;
             languagesToolStripMenuItem.Text = Lang.language.TextMenuLang;
             ukrainToolStripMenuItem.Text = Lang.language.TextMenuLangUkr;
             englishToolStripMenuItem.Text = Lang.language.TextMenuLangEng;

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 using Kursach.Class;
+using System.Drawing;
 
 namespace Kursach.Forms
 {
@@ -18,13 +19,9 @@ namespace Kursach.Forms
             this.type = type;
             var name = type == typeof(Funtion1) ? Lang.language.TextMenuF1 : Lang.language.TextMenuF2;
             this.Text = name;
-            this.Size = new System.Drawing.Size(400, 180);
-            PictureBox pictureBox1 = new PictureBox();
+            this.Size = new Size(400, 180);
 
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.Anchor = (AnchorStyles.Bottom | AnchorStyles.Right | AnchorStyles.Left | AnchorStyles.Top);
-            pictureBox1.Size = new System.Drawing.Size(390, 140);
-            pictureBox1.Location = new System.Drawing.Point(0, 0);
+            PictureBox pictureBox1 = CreatePicture(new Point(0, 0), new Size(390, 140));
             if (type == typeof(Funtion1))
             {
                 pictureBox1.Image = Lang.language._1Funtion;
