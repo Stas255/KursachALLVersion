@@ -1,16 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Drawing;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
-using Kursach.Class;
-using Kursach.Forms;
 
 namespace Kursach
 {
@@ -86,7 +76,7 @@ namespace Kursach
             chart1.TabIndex = 1;
             chart1.Location = point;
             chart1.Size = size;
-            ChartArea chartArea1 = new ChartArea(); //Представляє область діаграми на зображенні діаграми.
+            ChartArea chartArea1 = new ChartArea(); //Область діаграми на зображенні діаграми.
             chartArea1.Name = "ChartArea1";
             chart1.ChartAreas.Add(chartArea1);
             chart1.Anchor = (AnchorStyles.Bottom | AnchorStyles.Right | AnchorStyles.Left | AnchorStyles.Top);

@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Kursach.Class
 {
@@ -97,7 +94,7 @@ namespace Kursach.Class
         /// </summary>
         private int Check(double x, double q)
         {
-            if (A + x == 0)
+            if (A + x <= 0)
             {
                 return 1;
             }

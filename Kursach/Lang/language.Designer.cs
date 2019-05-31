@@ -126,7 +126,7 @@ namespace Kursach.Lang {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Sin(q) = 0, Log(a+x) = 0.
+        ///   Ищет локализованную строку, похожую на Sin(q) = 0, Log(a+x) &lt;= 0.
         /// </summary>
         internal static string Errors {
             get {

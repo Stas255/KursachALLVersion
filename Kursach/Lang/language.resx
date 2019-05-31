@@ -130,7 +130,7 @@
     <value>Xmax повинне бути більше Xmin</value>
   </data>
   <data name="Errors" xml:space="preserve">
-    <value>Sin(q) = 0, Log(a+x) = 0</value>
+    <value>Sin(q) = 0, Log(a+x) &lt;= 0</value>
   </data>
   <data name="ErrorTextIsNull" xml:space="preserve">
     <value>Всі поля повинні бути заповнені</value>

@@ -35,13 +35,23 @@ namespace Kursach.Class
             progressBar.Value = 0;
             progressBar.Maximum = 100;
             int iteration = 0;
-            for (double x = xMin; x <= xMax; x += dx)
+            if (xMin > xMax)
             {
-                CalculateRand(x);
-                progressBar.Value = (xMin < xMax)
-                    ? (int)Math.Abs(iteration * 100 / ((xMax - xMin) / dx))
-                    : (int)Math.Abs(iteration * 100 / ((xMin + xMax) / dx));
-                iteration++;
+                for (double x = xMin; x >= xMax; x += dx)
+                {
+                    CalculateRand(x);
+                    progressBar.Value = (int)Math.Abs(iteration * 100 / ((xMin + Math.Abs(xMax)) / dx));
+                    iteration++;
+                }
+            }
+            else
+            {
+                for (double x = xMin; x <= xMax; x += dx)
+                {
+                    CalculateRand(x);
+                    progressBar.Value = (int)Math.Abs(iteration * 100 / ((xMax - xMin) / dx));
+                    iteration++;
+                }
             }
             progressBar.Value = progressBar.Maximum;
         }

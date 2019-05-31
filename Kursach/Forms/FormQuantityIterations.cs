@@ -26,8 +26,9 @@ namespace Kursach.Forms
             var name = type == typeof(Funtion1) ? Lang.language.TextMenuF1 : Lang.language.TextMenuF2;
             this.Text = name;
             this.Size = new System.Drawing.Size(250, 100);
-
             this.results = results;
+            label = CreateLabel(new Point(10, 10), new Size(150, 30), $"{Lang.language.TextIteration}: {results.Count}");
+            label.Text = $"{Lang.language.TextIteration}: {results.Count}";
             this.Controls.Add(label);
         }
         public void Refresh()

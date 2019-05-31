@@ -73,7 +73,9 @@ namespace Kursach
                 return false;
             }
         }
-
+        /// <summary>
+        /// Початок роботи
+        /// </summary>
         private void button1_Click(object sender, EventArgs e)
         {
             if (Check()) {
@@ -135,7 +137,7 @@ namespace Kursach
 
         private void QuantityIterationToolStripMenuItem2_Click(object sender, EventArgs e)
         {
-            CheckAndCreateFuntion(enumFoms.FormIteration1, typeof(Funtion1), new FormQuantityIterations());
+            CheckAndCreateFuntion(enumFoms.FormIteration2, typeof(Funtion2), new FormQuantityIterations());
         }
 
         private void InformationAboutStudentToolStripMenuItem_Click(object sender, EventArgs e)
@@ -152,9 +154,9 @@ namespace Kursach
         }
 
         /// <summary>
-        /// Створює s відкриває Form
+        /// Створює і відкриває Form
         /// </summary>
-        private void CheckAndCreateFuntion(enumFoms enumFuntion, Type type, Forms.InterfaceRefresh newForm)
+        private void CheckAndCreateFuntion(enumFoms enumFuntion, Type type, InterfaceRefresh newForm)
         {
             if (!dictionary.ContainsKey(enumFuntion))
             {
@@ -168,6 +170,7 @@ namespace Kursach
             dictionary[enumFuntion].AddFunction(type,dataBase == null? null: dataBase.GetResult(type));
             dictionary[enumFuntion].Show();
         }
+
         /// <summary>
         /// Змінює мову в програмі
         /// </summary>
@@ -183,6 +186,7 @@ namespace Kursach
             }
             Refresh();
         }
+
         /// <summary>
         /// Визначає чи відкрита форми
         /// </summary>
@@ -208,7 +212,7 @@ namespace Kursach
         }
 
         /// <summary>
-        /// Показує час
+        /// Виводить час
         /// </summary>
         private void timer1_Tick(object sender, EventArgs e)
         {
@@ -231,8 +235,7 @@ namespace Kursach
             ToolStripMenuItemF2.Text = Lang.language.TextMenuF2;
             ToolStripMenuItemGraphF1.Text = ToolStripMenuItemGraphF2.Text = Lang.language.TextMenuGraf;
             ToolStripMenuItemFormulaF1.Text = ToolStripMenuItemFormulaF2.Text = Lang.language.TextMenuFormula;
-            QuantityIterationToolStripMenuItem1.Text =
-            QuantityIterationToolStripMenuItem2.Text = Lang.language.TextIteration;
+            QuantityIterationToolStripMenuItem1.Text = QuantityIterationToolStripMenuItem2.Text = Lang.language.TextIteration;
             languagesToolStripMenuItem.Text = Lang.language.TextMenuLang;
             ukrainToolStripMenuItem.Text = Lang.language.TextMenuLangUkr;
             englishToolStripMenuItem.Text = Lang.language.TextMenuLangEng;
